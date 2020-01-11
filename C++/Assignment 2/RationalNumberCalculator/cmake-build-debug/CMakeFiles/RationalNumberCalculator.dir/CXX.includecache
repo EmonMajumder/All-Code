@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+E:/C++/C++ Repository/Assignment 2/RationalNumberCalculator/Rational.cpp
+regex
+-
+Rational.h
+E:/C++/C++ Repository/Assignment 2/RationalNumberCalculator/Rational.h
+
+E:/C++/C++ Repository/Assignment 2/RationalNumberCalculator/Rational.h
+fstream
+-
+vector
+-
+
+E:/C++/C++ Repository/Assignment 2/RationalNumberCalculator/main.cpp
+iostream
+-
+Rational.cpp
+E:/C++/C++ Repository/Assignment 2/RationalNumberCalculator/Rational.cpp
+
