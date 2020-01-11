@@ -1,0 +1,83 @@
+/*
+   New Perspectives on HTML and CSS, 7th Edition
+   Tutorial 6
+   Case Problem 4
+
+   Schedule Table Style Sheet
+      Author: Emon Majumder
+      Date:   11/12/2018
+	  
+   Filename:  hcc_schedule.css
+   Supporting Files: 
+
+*/
+
+/* Table Styles */
+table#schedule {
+	max-width:760px;
+	margin:auto;
+	border: 2px solid black;
+	border-collapse: collapse;
+	float: left;
+	margin: 5px;
+	background-color:rgb(255, 184, 77);
+}
+table#schedule>thead {
+	background-color:rgb(255, 51, 51);
+}
+
+table#schedule th, table#schedule td {
+	border: 2px solid black;
+	border-collapse: collapse;
+	padding:2px;
+	vertical-align:center;
+}
+table#headnav th {
+	background-color:black;
+	width:11.111%
+}
+table#headnav {
+	width:954px;
+	margin:auto;
+}
+
+/* Table Caption Styles */
+table#schedule caption {
+	caption-side:top;
+	text-align:left;
+	font-size:1.2em;
+	font-weight: bold;
+}
+/* Column Styles */
+col#firstcol {
+	background: rgb(150,150,155);
+	width:9%;
+}
+col.daycols {
+	width:13%
+}
+article {
+	-moz-column-count:2;
+	-webkit-column-count:2;
+	column-count:2;
+	
+	-moz-column-gap: 20px;
+	-webkit-column-gap: 20px;
+	column-gap: 20px;
+	
+	-moz-column-rule: 3px solid black;
+	-webkit-column-rule: 3px solid black;
+	column-rule: 3px solid black;
+	
+	widows: 3;
+	orphans:3;
+	
+}
+article h1 {
+	-moz-column-span: all;
+	-webkit-column-span: all;
+	column-span: all;
+}
+td.value {
+	background-color:yellow;
+}

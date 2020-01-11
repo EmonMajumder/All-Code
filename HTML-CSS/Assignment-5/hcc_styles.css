@@ -1,0 +1,54 @@
+/*
+   New Perspectives on HTML and CSS, 7th Edition
+   Tutorial 6
+   Case Problem 4
+
+   Hamilton Conference Center Style Sheet
+      Author: Emon Majumder
+      Date:   11/12/2018
+
+   Filename:         hcc_styles.css
+   Supporting files: 
+
+*/
+
+html {
+	background-image: url("dungeon_pattern_repeating_black.jpg");
+}
+body {
+	max-width: 1000px;
+	margin: auto;
+	background-color:white;
+}
+address {
+	background-color:rgb(128, 223, 255);
+	text-align: center;
+}
+aside {
+	float: left;
+	background-color:rgb(153, 255, 153);
+	position:relative;
+	left: 0px;
+    top: 27px;
+	height: 510px;
+}
+footer {
+		clear:both;
+}
+h2,p.reservation {
+	padding-left:10px;
+}
+table#headnav a {
+	text-decoration:none;
+	color: white;
+}
+a.callmail {
+	color:blue;
+	font-size: 1.1em;
+	text-decoration: none;
+}
+article {
+	clear: both;
+	padding: 15px;
+}
+	

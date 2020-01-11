@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	   <!--
+		  New Perspectives on HTML5 and CSS3, 7th Edition
+		  Tutorial 6
+		  Case Problem 4
+
+		  Hamilton Conference Center Room Schedule
+		  Author: Emon Majumder
+		  Date:   11/12/2018
+
+		  Filename:   hcc_schedule.html
+	   -->
+	   <title>Hamilton Conference Center</title>
+	   <meta charset="utf-8"/>
+	   <link href="hcc_schedule.css" rel="stylesheet" />
+	   <link href="hcc_styles.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<table id="headnav">
+			<thead>
+				<tr>
+					<th><a href="#">Home Page</a></th>
+					<th><a href="#">Reservations</a></th>
+					<th><a href="#">Facilities</a></th>
+					<th><a href="#">Virtual Tour</a></th>
+					<th><a href="#">Staff</a></th>
+					<th><a href="#">Calendar of Events</a></th>
+					<th><a href="#">Contact Info</a></th>
+					<th><a href="#">Directions</a></th>
+					<th><a href="#">FAQ</a></th>
+				</tr>
+			</thead>
+		</table>
+		<h2>Reservations for Conference Rooms</h2>
+		<p class="reservation">To reserve a room, please contact <em>Yancy Inwe</em> 
+		at extension 388 or by e-mail at <a class="callmail" href="mail:yancyinwe@hconfcenter.org">yancyinwe@hconfcenter.org</a>.
+		Reservations should be made at least 48 hours in advance. Cancellations require 24 hour notice. Room deposits will
+		not be returned for cancellations within 24 hours of the scheduled event.</p>
+		<p class="reservation">Contact Info: <a class="callmail" href="tel:5135557911">(513) 555 - 7911</a></p>
+		<table id="bio">
+			<caption>Tuesday, April 10</caption>
+			<colgroup>
+				<col id="firstcol" />
+				<col class="daycols" span="7" />
+			</colgroup>
+			<thead>
+				<tr id="table_heading">
+					<th>Time</th>
+					<th>Sunrise Room</th>
+					<th>Mountain View Room</th>
+					<th>Arbor Hall</th>
+					<th>Mitchell Theater</th>
+					<th>Gold Room</th>
+					<th>Blue Room</th>
+					<th>Green Room</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>8:00</th>
+					<td class="value" rowspan="4">Marriage Encounter</td>
+					<td class="value" rowspan="2">Breakfast Club of Ohio</td>
+					<td class="value" rowspan="8">Computer Expo set up</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					
+				</tr>
+				<tr>
+					<th>8:30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+
+				</tr>
+				<tr>
+					<th>9:00</th>
+					<td></td>
+					<td></td>
+					<td class="value" rowspan="3">The Tompkins Group</td>
+					<td class="value" rowspan="3">Retirement Planning</td>
+					<td class="value" rowspan="4">Drivers' Ed</td>
+				</tr>
+				<tr>
+					<th>9:30</th>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>10:00</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>10:30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="value" rowspan="3">Pearson Planning</td>
+					<td class="value" rowspan="3">The Senior Group</td>
+				</tr>
+				<tr>
+					<th>11:00</th>
+					<td></td>
+					<td class="value" rowspan="4">Ohio Conference of Librarians</td>
+					<td></td>
+					<td class="value" rowspan="5">Movie Club</td>
+				</tr>
+				<tr>
+					<th>11:30</th>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>12:00</th>
+					<td class="value" rowspan="2">Marriage Encounter Luncheon</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td class="value" rowspan="2">Senior Luncheon</td>
+				</tr>
+				<tr>
+					<th>12:30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>1:00</th>
+					<td></td>
+					<td></td>
+					<td class="value" rowspan="8">Computer Expo opening session</td>
+					<td></td>
+					<td></td>
+					<td class="value" rowspan="5">Senior Classes</td>
+				</tr>
+				<tr>
+					<th>1:30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>2:00</th>
+					<td></td>
+					<td class="value" rowspan="6">Ohio Book Resale Setup</td>
+					<td></td>
+					<td class="value" rowspan="3">Mothers of Multiples</td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>2:30</th>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tr>
+					<th>3:00</th>
+					<td class="value" rowspan="4">Marriage Encounter Talks</td>
+					<td class="value" rowspan="4">Youth Theatre</td>
+					<td></td>
+				</tr>
+					<tr>
+					<th>3:30</th>
+					<td class="value" rowspan="3">Teen Connection</td>
+					<td class="value" rowspan="3">Tutoring</td>
+					<td class="value" rowspan="3">Tutoring</td>
+				</tr>
+				<tr>
+					<th>4:00</th>
+				</tr>
+				<tr>
+					<th>4:30</th>
+				</tr>
+			</tbody>
+			<tfoot>
+				<tr>
+					<td colspan="8">
+						<address>Hamilton Conference Center 8711 West Park Lane Hamilton, OH 45011</address>
+					</td>
+				</tr>
+			</tfoot>
+		</table>
+		<aside>
+			<h4>Here are the room descriptions:</h4>
+			<nav>
+				<ol>
+					<li>Sunrise Room:<br>Maximum Capacity: 80</li>
+					<li>Moutain View Room<br>Maximum Capacity: 150</li>
+					<li>Arbor Hall<br>Maximum Capacity: 190</li>
+					<li>Mitchell Theatre<br>Maximum Capacity: 120</li>
+					<li>Gold Room<br>Maximum Capacity: 40</li>
+					<li>Blue Room<br>Maximum Capacity: 30</li>
+					<li>Green Room<br>Maximum Capacity: 55</li>
+				</ol>
+			</nav>
+		</aside>
+		<article>
+			<h1>History of the establishment of HCC starting from the coming of first man in Hamilton, Ohio</h1>
+			Exhausted because, all week, he's come in early, stayed late, and put 
+			in some serious hours. Proud because he knows he's done everything that's
+			been asked of him, and more: he's dealt calmly and competently with every
+			pressure and deadline that has been thrown at him.
+			<p>A head pops around the door. It's Jo, a manager who Aidan works with 
+			but doesn't report to directly. "I just wanted to say, I know you've been 
+			really pushed this week, but well done. You've done a great job – thank you." 
+			She smiles before disappearing. Aidan sits back, pleased with the compliment.</p>
+			<p>But then it hits him. This is the first time that anyone's said thank you 
+			for anything, in the two years he's been with the team. And it wasn't even 
+			his boss saying it! By the time Aidan is finally done, he knows that he needs 
+			to look for a role in another section.</p>
+			<p>In this article, we'll explore the importance of acknowledging and applauding 
+			success. We'll examine some of the psychology behind reward and recognition, 
+			and we'll outline a range of ways you can celebrate achievement.</p>
+			<h3>Credit Where Credit's due.</h3>
+			<p>We all want to feel confident and competent in our work. Much of that 
+			confidence   will come from putting in the time and attention that's 
+			needed to do a good job, being open to learning and development, and 
+			having a healthy level of self awareness.</p>
+			<p>But you, as a manager, also play a powerful part in your team members' 
+			confidence. If you give "credit where credit's due," fairly and 
+			appropriately, you will reinforce what your people know to be true, 
+			and encourage them where they have doubts. However, if you rarely 
+			acknowledge "a job well done," or constantly criticize them, there's 
+			a risk that their motivation   will slip away. You might wonder why 
+			you should bother to bolster your team members' self esteem. After 
+			all, aren't they just doing what's expected of them? Sport shows us 
+			that self assured teams   don't usually "rest on their laurels." 
+			Instead, they want and expect more success, and go on performing well. 
+			That pattern is just as clear in the workplace, so acknowledging and 
+			celebrating achievement is part of Building an Effective Team.</p>
+			<h3>Definitions</h3>
+			<p>An American Psychological Association (APA) survey found that most 
+			of the companies that its respondents worked for operated some kind of 
+			recognition scheme, but that the rewards were aligned only rarely to 
+			the organization's values or strategic priorities. More than a third 
+			of the people surveyed had received no recognition in the previous 
+			year, fewer than half said that recognition was provided fairly, and 
+			only half felt valued by their employer.</p>
+			<p>These schemes had failed badly. Imagine the waste of company effort 
+			and resources, and the demoralizing effect on their employees! So, 
+			to avoid making the same mistake, consider this carefully: what 
+			would be right for your workplace?</p>
+			<p>When we think of an achievement, we tend to imagine something 
+			out of the ordinary, but it could be something as simple as 
+			quietly consistent, good work. Some examples of clearly identifiable 
+			achievements are hitting or exceeding a target, saving money, 
+			delivering a project's next milestone, or getting sign off on a 
+			whole project. But behaviors that are not so easy to measure 
+			might also deserve recognition, such as pulling together as a 
+			team to head off a crisis, or being consistently supportive 
+			to new recruits.</p>
+			<p>Similarly, what we mean by a celebration can vary, from private, 
+			low-key and free, to public and fancy, with no expense spared! 
+			Whatever you choose, be sure to tailor it to the situation.</p>
+			<h3>Make It Really Count</h3>
+			<p>The APA survey mentioned above also described a scenario that 
+			might be painfully familiar from our personal lives. That is, a 
+			reward or gift has no positive effect if the recipient doesn't 
+			actually want or value it, no matter how much you've spent on it! 
+			So, you'll need a deep understanding of your colleagues' preferences 
+			and personalities, and the dynamics of the team, before you hold 
+			a celebration. For example, if someone is an introvert  , he or 
+			she might not </p>
+			<p>want to be made the centre of attention. Instead, a quiet, 
+			personal "thank you" could be all he needs, and he'll appreciate 
+			it more. Similarly, don't offer him a bottle of wine if he 
+			abstains, or throw an expensive away-day for the team just 
+			as company pay rates are frozen. Some people can feel offended 
+			or patronized by any overt appreciation of their work as, 
+			to them, it seems to imply surprise. There might also be wider 
+			cultural faux pas to avoid.</p>
+			<p>So, you have a minefield to pick your way through! One way 
+			to find out what your people will value is simply to ask them. 
+			You can do this informally or through an employee engagement 
+			or satisfaction survey. Beware of the effect on yourself, too. 
+			"Going overboard" in your praise for everyday efforts might 
+			make you appear out of touch   with the team's work. And 
+			too-frequent thanks become meaningless, and lose their impact. 
+			But it's worth persevering. As Bruna Martinuzzi writes  , 
+			"There is a lovely Chinese quote that says, 'A bit of perfume 
+			always clings to the hand that gives roses.' When we make 
+			people feel great about themselves, paradoxically we elevate 
+			ourselves to greatness as well."</p>
+		</article>
+	</body>
+</html>

@@ -1,0 +1,127 @@
+@charset "utf-8";
+@font-face {
+    font-family: cicle;
+    src: url(Cicle_Gordita-webfont.woff);
+}
+
+/*
+	Author: Emon Majumder 
+	Filename: Emon_Majumder_e-portfoiliostyle2.css
+	This file contains the typographical and layout styles used in Emon Majumder for navigation.
+*/
+
+/* HTML and Body Styles */
+
+html {
+   background: url(Commonback.jpg) center center / cover no-repeat fixed;
+   height: 100%;
+   font-family:Verdana, Geneva, sans-serif;
+   min-width:300px;
+   font-size: 12px;
+}
+
+body { 
+   margin: 0px auto;
+   min-height: 100%;
+   min-width: 300px;
+   max-width: 1024px;
+   width: 100%;
+}
+
+/* Horizonal Navigation Styles */
+
+body {
+   line-height: 1.2em;
+}
+
+nav.horizontal ul, ol {
+   list-style: none;
+}
+
+nav.horizontal ul {
+   list-style: none;
+   list-style-image: none;
+}
+
+nav.horizontal a {
+   text-decoration: none;
+}
+	
+nav.horizontal {
+	clear: both;
+}
+
+nav.horizontal li {
+   color: rgb(31, 73, 125);
+   padding:10px;
+   text-transform: uppercase;
+}
+nav.horizontal ul li a {
+   display: block;
+   padding: 10px;
+   text-align: center;
+   font-family:cicle;
+   font-size:1.8em;
+   line-height:.75em;
+}
+a#currentpage {
+	background-color:black;
+	color:red;
+	box-shadow: 0px 0px 30px red;
+}
+nav.horizontal ul li a:visited, nav.horizontal ul li a:link {
+	color: white;
+}
+nav.horizontal ul li a:hover, nav.horizontal ul li a:active {
+   background-color: red;
+   color: rgb(231, 231, 231);
+}
+a#navicon {
+	display: none
+}
+
+/* ===============================
+   Tab and Computers 481 to greater
+   ===============================
+*/
+@media only screen and (min-width: 481px) {
+	nav.horizontal ul {	
+		display: -webkit-flex;
+		display: flex;
+		-webkit-flex-flow: row nowrap;
+		flex-flow: row nowrap;
+	}
+	nav.horizontal li {
+		-webkit-flex: 1 1 auto;
+		flex: 1 1 auto;
+	}
+}
+
+/* ===============================
+   Mobile Devices: 0 to 480px 
+   ===============================
+*/
+@media only screen and (max-width: 480px) {
+	a#navicon {
+	display: block;
+	padding:5px;
+	}
+	nav.horizontal ul {
+		display: none;
+	}
+	a#navicon:hover+ul, nav.horizaontal ul:hover {
+		display: block;
+		width:30%;
+	}
+	nav.horizontal ul li a {
+		text-align: left;
+		font-size:1.5em;
+		padding:3px;
+	}
+	nav.horizontal li {
+		padding:3px;
+	}
+	body>header>img#top_image {
+	top:0px;
+	}
+}

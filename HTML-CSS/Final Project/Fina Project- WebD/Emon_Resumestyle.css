@@ -1,0 +1,135 @@
+/*
+    Author: Emon Majumder	  
+	Filename:  Emon_Resumestyle.css (Resume)
+*/
+
+h1 {
+	background-image:linear-gradient(to right,black 40%,white 95%,white 100%);
+	padding:10px;
+	font-size:1.8em;
+	line-height:1em;
+	margin-bottom:10px;
+	color:white;
+}
+h2 {	
+	margin-top:5px;
+	margin-bottom:5px;
+	font-size:1.3em;
+	padding:5px;
+	color:white;
+	background-color:rgb(0, 103, 167);	
+}
+article#print a {
+	text-decoration: none;
+}
+a.linkresume:hover {
+	background-color: rgb(255, 255, 179);
+	text-decoration: none;
+}
+div.address {
+	padding-left:20px;
+}
+hr {
+	height:2px;
+	background-color:black;
+}
+h4 {
+	font-size:1.05em;
+}
+p#sranalyst {
+	float:left;
+	color:rgb(0, 102, 204);
+	font-weight:bold;
+}
+p#Date {
+	padding-right:20px;
+	float:right;
+}
+p#worked {
+	clear:both;
+}
+p#referencetwo,p#referenceone {
+	margin-top:10px;
+}
+section#main ul, section#Sidebar ul{
+	padding-left: 20px;	
+}
+section#Sidebar {
+	background-color:rgb(255, 242, 230);
+	box-sizing: border-box;
+	min-height:800px;
+}
+article {
+	background: url("Resumeback.PNG");
+	font-size:1.2em;
+	line-height:1.2em;
+	padding: 10px;
+	margin:auto;
+	clear:both;
+	min-height:900px;
+	position:relative;
+	top:-30px;
+}
+article::after{
+	clear:both;
+	content: "";
+	display: table;	
+}
+table#education {
+	float:left;
+	border: 4px solid black;
+	border-collapse: collapse;
+	margin-bottom:5px;
+}
+table#education tr th, table#education tr td{
+	border: 2px solid black;
+	border-collapse: collapse;
+}
+div#Honors {
+	clear:both;
+}
+ul#address li:first-of-type{
+	list-style-image:url(email.png);
+}
+ul#address li:nth-of-type(2){
+	list-style-image:url(phone.png);
+}
+ul#address li:last-of-type{
+	list-style-image:url(address.png);
+}
+
+button {
+	float:right;
+	position:relative;
+	top:20px;
+	right:10px;
+	height:35px;
+	z-index: +1;
+}
+div.skills ul, div.language ul{
+	list-style:none;
+}
+div.skills ul li p, div.language ul li p{
+	margin-bottom:5px;
+}
+@media only screen and (min-width: 680px) {
+	section#main {
+	float:left;
+	width:70%;
+	padding:15px;
+	}
+	section#Sidebar {
+	float:left;
+	width:28%;
+	padding:10px;
+	}
+	div.skills {
+	min-height:185px;
+	}
+	div.address {
+	min-height:120px;
+	}
+	h2#top {
+	margin-top:50px;
+	}
+}

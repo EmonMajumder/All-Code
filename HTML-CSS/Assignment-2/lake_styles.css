@@ -1,0 +1,151 @@
+﻿@charset "utf-8";
+/* font-face used so that if the font is missing from 
+user device, it can download */
+@font-face{
+	font-family:Champagne;
+	src:url(cac_champagne.woff) format('woff'),
+		url(cac_champagne.ttf) format('truetype');
+}
+@font-face{
+	font-family:Dobkin;
+	src:url(DobkinPlain.woff) format('woff'),
+		url(DobkinPlain.ttf) format('truetype');
+}
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 2
+   Case Problem 4
+   
+   Great Lakescape Lodge Style Sheet
+   Author: Emon Majumder
+   Date: 10/03/2018  
+   
+   Filename: lake_styles.css
+
+*/
+
+/* HTML and Body Styles */
+body {
+	background-color: rgba(140, 140, 140,.3);
+}
+#rightcol{
+	background-color: rgb(255, 153, 153);
+}
+#upcomming_event{
+	background-color:rgb(255, 194, 102);
+	padding:15px;
+}
+#notes{
+	background-color: hsl(60,100%,70%);
+}
+#leftcol>p::first-letter{
+	font-size:1.3em;
+	font-weight:bold;
+}	
+header{
+	background-color:rgb(179, 255, 218);
+}
+
+
+/* Heading styles */
+#leftcol>h1 {
+	font-family: Dobkin, sans-serif;
+	font-size:3em;
+	color: red;
+	margin-bottom:5px;
+	margin-top:15px;
+}
+#rightcol h2{
+	font-family: Champagne;
+	color: White;
+	letter-spacing:1.5px;
+	font-size:2em;
+	padding-left: 20px;
+}
+#notes h1,#upcomming_event h1{
+	text-align:center;
+	font-family: Dobkin, sans-serif;
+	font-size:2em;
+	color: green; 
+}
+
+
+/* Blockquote Styles */
+blockquote{
+	background-color: rgb(170, 255, 128);
+	padding:10px;
+	border-style: solid;
+	border-color:rgb(0, 191, 255);
+	border-width:10px;
+	quotes:"\201C""\201D"
+}
+blockquote::before{
+	content:open-quote;
+	font-family:'Times New Roman';
+	font-size:2em;
+	font-weight:bold;
+}
+blockquote::after{
+	content:close-quote;
+	font-family:'Times New Roman';
+	font-size:2em;
+	font-weight:bold;
+}
+
+	
+/* List Styles */
+#notes ul li:first-of-type{
+	list-style-type:square;
+}
+#notes ul li:nth-of-type(2){
+	list-style-type:square;
+}
+#notes ul li:nth-of-type(3){
+	list-style-type:square;
+}
+#notes ul li:last-of-type{
+	list-style-type:square;
+}
+#rightcol li{
+	list-style-type:none;
+}
+#rightcol ul{
+	margin-top:5px;
+}
+#rightcol h2{
+	margin-bottom:5px;
+}
+
+
+/* Navigation Styles */
+#rightcol a:link, #rightcol a:visited{
+	text-decoration:none;
+	color:blue;
+}
+#rightcol a:hover, #rightcol a:active{
+	text-decoration:none;
+	color:lime;
+	text-decoration:underline;
+}
+header a:link,header a:visited{
+	text-decoration:none;
+	color:blue;
+	font-size:1.3em;
+}
+header a:hover,header a:active{
+	background-color:rgb(255,166,77);
+	text-decoration:none;
+	color:white;
+	padding:1px;
+}
+
+
+/* Footer Styles */
+footer{
+	background-color:black;
+	color:white;
+	font-size:1.2em;
+	font-family:arial;
+	text-align:center;
+}

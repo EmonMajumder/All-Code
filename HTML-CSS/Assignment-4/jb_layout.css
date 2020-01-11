@@ -1,0 +1,50 @@
+@charset "utf-8";
+
+/*
+   New Perspectives on HTML5 and CSS3, 7th Edition
+   Tutorial 5
+   Case Problem 4
+   
+	Author: Emon Majumder
+	Date: 11-05-2018       
+   
+   Filename: jb_layout.css
+
+   This file contains the screen styles used with the 
+   Jersey Buoys home page
+
+*/
+
+article {
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-bottom: 20px;
+}
+
+/* Aside Layout */
+
+aside {
+	margin-left: 1%;
+	margin-right: 1%;
+	margin-bottom: 20px;
+}
+
+/* Div Navigation */
+
+div > nav {
+	display: table;
+	width: 100%;
+}
+
+div > nav > ul {
+	display: table-row;
+	list-style-type: none;
+}
+div > nav a {
+	display: block;
+	width: 100%;
+	text-decoration: none;
+}
+div > nav > ul> li> a> img {
+	background-color: black;
+}

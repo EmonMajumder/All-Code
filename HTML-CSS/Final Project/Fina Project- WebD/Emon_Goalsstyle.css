@@ -1,0 +1,51 @@
+/*
+    Author: Emon Majumder	  
+	Filename:  Emon_Goalsstyle.css (Goals)
+*/
+
+h1 {
+	font-size:2em;
+	padding-left:20px;
+	padding-top:20px;
+	color:Red;
+}
+h2{
+	font-size:1.5em;
+	padding:5px;
+	color:rgb(255, 255, 0);
+	
+}
+article li {
+	font-size:1.3em;
+	line-height:1.3em;
+	text-align:justify;
+}
+article {
+	background-image: url(Goalsback.jpg);
+	color:white;
+	padding-left: 150px;
+	clear:both;
+	content: "";
+	display: table;
+}
+section {
+	margin:20px;
+}
+ol#ShortTermList, ol#LongTermList {
+	list-style-type:decimal;
+}
+		
+@media only screen and (max-width: 770px) {
+	section#LongTerm {
+	padding-bottom:20px;
+	}
+}
+
+@media only screen and (min-width: 770px) {
+	
+	section#ShortTerm,section#LongTerm {
+		min-height:300px;
+		width:40%;
+		float:left;
+		}
+}
