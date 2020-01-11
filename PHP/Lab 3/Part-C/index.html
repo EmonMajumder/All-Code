@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create a Web Form</title>
+    <script src="Formvalidation.js"></script>
+</head>
+<body>
+    <form name="myForm" action="index.php" onsubmit="return validateForm()" method="post">
+        <p>
+            <label id="fName_label">First Name:
+                <input type="text" name="fName" id="fName"  onfocusin='cngin(this.id);' onfocusout='cngout(this.id);'>
+            </label>
+        </p>
+        <p>
+            <label id="lName_label">Last Name:
+                <input type="text" name="lName" id="lName"  onfocusin='cngin(this.id);' onfocusout='cngout(this.id);'>
+            </label>
+        </p>
+        <p>
+            <label id="Address1_label">Address 1:
+                <input type="text" name="Address1" id="Address1"  onfocusin='cngin(this.id);' onfocusout='cngout(this.id);'>
+            </label>
+        </p>
+        <p>
+            <label id="Address2_label">Address 2:
+                <input type="text" name="Address2" id="Address2"  onfocusin='cngin(this.id);' onfocusout='cngout(this.id);'>
+            </label>
+        </p>
+        <p>
+            <label id="email_label">Email:
+                <input type="text" name="email" id="email"  onfocusin='cngin(this.id);' onfocusout='cngout(this.id);'>
+            </label>
+        </p>
+        <Label>
+            <input type="checkbox" name="terms" id="terms">Accept Terms and Conditions<span id="warning" style="visibility:hidden">&nbsp&nbsp&nbspMust accept terms and conditions</span><br><br>
+        </Label>
+        <input type="submit">
+    </form>
+</body>
+</html>
