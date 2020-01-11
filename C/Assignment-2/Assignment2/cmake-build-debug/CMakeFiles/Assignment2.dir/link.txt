@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/Assignment2.dir/main.c.o CMakeFiles/Assignment2.dir/leapyear.c.o  -o Assignment2 
