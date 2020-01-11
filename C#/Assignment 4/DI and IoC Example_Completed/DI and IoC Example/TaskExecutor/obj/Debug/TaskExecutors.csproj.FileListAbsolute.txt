@@ -1,0 +1,7 @@
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\bin\Debug\TaskExecutors.dll
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\bin\Debug\TaskExecutors.pdb
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\bin\Debug\Logger.dll
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\bin\Debug\Logger.pdb
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\obj\Debug\TaskExecutors.csprojResolveAssemblyReference.cache
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\obj\Debug\TaskExecutors.dll
+C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\TaskExecutor\obj\Debug\TaskExecutors.pdb

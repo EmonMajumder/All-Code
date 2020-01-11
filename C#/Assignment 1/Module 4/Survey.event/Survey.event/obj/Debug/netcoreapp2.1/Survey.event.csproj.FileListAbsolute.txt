@@ -1,0 +1,11 @@
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\bin\Debug\netcoreapp2.1\Survey.event.deps.json
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\bin\Debug\netcoreapp2.1\Survey.event.runtimeconfig.json
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\bin\Debug\netcoreapp2.1\Survey.event.runtimeconfig.dev.json
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\bin\Debug\netcoreapp2.1\Survey.event.dll
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\bin\Debug\netcoreapp2.1\Survey.event.pdb
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\obj\Debug\netcoreapp2.1\Survey.event.csprojAssemblyReference.cache
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\obj\Debug\netcoreapp2.1\Survey.event.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\obj\Debug\netcoreapp2.1\Survey.event.AssemblyInfoInputs.cache
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\obj\Debug\netcoreapp2.1\Survey.event.AssemblyInfo.cs
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\obj\Debug\netcoreapp2.1\Survey.event.dll
+C:\C#\Assignment 1\Module 4\Survey.event\Survey.event\obj\Debug\netcoreapp2.1\Survey.event.pdb

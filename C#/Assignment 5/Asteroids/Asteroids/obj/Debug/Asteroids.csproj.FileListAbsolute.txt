@@ -1,0 +1,10 @@
+C:\C#\Assignment 5\Asteroids\Asteroids\bin\Debug\Asteroids.exe.config
+C:\C#\Assignment 5\Asteroids\Asteroids\bin\Debug\Asteroids.exe
+C:\C#\Assignment 5\Asteroids\Asteroids\bin\Debug\Asteroids.pdb
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.csprojAssemblyReference.cache
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.Properties.Resources.resources
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.csproj.GenerateResource.cache
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.exe
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.pdb
+C:\C#\Assignment 5\Asteroids\Asteroids\obj\Debug\Asteroids.Asteroids_form.resources

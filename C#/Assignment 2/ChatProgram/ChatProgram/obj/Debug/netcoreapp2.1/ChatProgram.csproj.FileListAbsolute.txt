@@ -1,0 +1,11 @@
+C:\C#\Assignment 2\ChatProgram\ChatProgram\bin\Debug\netcoreapp2.1\ChatProgram.deps.json
+C:\C#\Assignment 2\ChatProgram\ChatProgram\bin\Debug\netcoreapp2.1\ChatProgram.runtimeconfig.json
+C:\C#\Assignment 2\ChatProgram\ChatProgram\bin\Debug\netcoreapp2.1\ChatProgram.runtimeconfig.dev.json
+C:\C#\Assignment 2\ChatProgram\ChatProgram\bin\Debug\netcoreapp2.1\ChatProgram.dll
+C:\C#\Assignment 2\ChatProgram\ChatProgram\bin\Debug\netcoreapp2.1\ChatProgram.pdb
+C:\C#\Assignment 2\ChatProgram\ChatProgram\obj\Debug\netcoreapp2.1\ChatProgram.csprojAssemblyReference.cache
+C:\C#\Assignment 2\ChatProgram\ChatProgram\obj\Debug\netcoreapp2.1\ChatProgram.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 2\ChatProgram\ChatProgram\obj\Debug\netcoreapp2.1\ChatProgram.AssemblyInfoInputs.cache
+C:\C#\Assignment 2\ChatProgram\ChatProgram\obj\Debug\netcoreapp2.1\ChatProgram.AssemblyInfo.cs
+C:\C#\Assignment 2\ChatProgram\ChatProgram\obj\Debug\netcoreapp2.1\ChatProgram.dll
+C:\C#\Assignment 2\ChatProgram\ChatProgram\obj\Debug\netcoreapp2.1\ChatProgram.pdb

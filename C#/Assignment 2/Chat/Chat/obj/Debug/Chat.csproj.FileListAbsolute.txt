@@ -1,0 +1,12 @@
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Chat.exe.config
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Chat.exe
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Chat.pdb
+C:\C#\Assignment 2\Chat\Chat\obj\Debug\Chat.csprojAssemblyReference.cache
+C:\C#\Assignment 2\Chat\Chat\obj\Debug\Chat.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 2\Chat\Chat\obj\Debug\Chat.exe
+C:\C#\Assignment 2\Chat\Chat\obj\Debug\Chat.pdb
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Client.dll
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Server.dll
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Client.pdb
+C:\C#\Assignment 2\Chat\Chat\bin\Debug\Server.pdb
+C:\C#\Assignment 2\Chat\Chat\obj\Debug\Chat.csproj.CopyComplete

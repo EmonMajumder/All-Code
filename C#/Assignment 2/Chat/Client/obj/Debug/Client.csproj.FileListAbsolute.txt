@@ -1,0 +1,6 @@
+C:\C#\Assignment 2\Chat\Client\bin\Debug\Client.dll
+C:\C#\Assignment 2\Chat\Client\bin\Debug\Client.pdb
+C:\C#\Assignment 2\Chat\Client\obj\Debug\Client.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 2\Chat\Client\obj\Debug\Client.dll
+C:\C#\Assignment 2\Chat\Client\obj\Debug\Client.pdb
+C:\C#\Assignment 2\Chat\Client\obj\Debug\Client.csprojAssemblyReference.cache

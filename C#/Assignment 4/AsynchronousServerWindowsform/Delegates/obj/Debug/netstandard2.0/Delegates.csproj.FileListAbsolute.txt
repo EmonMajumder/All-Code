@@ -1,0 +1,9 @@
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\bin\Debug\netstandard2.0\Delegates.deps.json
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\bin\Debug\netstandard2.0\Delegates.dll
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\bin\Debug\netstandard2.0\Delegates.pdb
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\obj\Debug\netstandard2.0\Delegates.csprojAssemblyReference.cache
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\obj\Debug\netstandard2.0\Delegates.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\obj\Debug\netstandard2.0\Delegates.AssemblyInfoInputs.cache
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\obj\Debug\netstandard2.0\Delegates.AssemblyInfo.cs
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\obj\Debug\netstandard2.0\Delegates.dll
+C:\C#\Assignment 4\AsynchronousServerWindowsform\Delegates\obj\Debug\netstandard2.0\Delegates.pdb

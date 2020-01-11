@@ -1,0 +1,11 @@
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\bin\Debug\netcoreapp2.1\GeometryTool.deps.json
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\bin\Debug\netcoreapp2.1\GeometryTool.runtimeconfig.json
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\bin\Debug\netcoreapp2.1\GeometryTool.runtimeconfig.dev.json
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\bin\Debug\netcoreapp2.1\GeometryTool.dll
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\bin\Debug\netcoreapp2.1\GeometryTool.pdb
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\obj\Debug\netcoreapp2.1\GeometryTool.csprojAssemblyReference.cache
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\obj\Debug\netcoreapp2.1\GeometryTool.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\obj\Debug\netcoreapp2.1\GeometryTool.AssemblyInfoInputs.cache
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\obj\Debug\netcoreapp2.1\GeometryTool.AssemblyInfo.cs
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\obj\Debug\netcoreapp2.1\GeometryTool.dll
+C:\C#\Assignment 1\Module 4\GeometryTool\GeometryTool\obj\Debug\netcoreapp2.1\GeometryTool.pdb

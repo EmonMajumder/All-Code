@@ -1,0 +1,11 @@
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\bin\Debug\netcoreapp2.1\Student_Manager.deps.json
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\bin\Debug\netcoreapp2.1\Student_Manager.runtimeconfig.json
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\bin\Debug\netcoreapp2.1\Student_Manager.runtimeconfig.dev.json
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\bin\Debug\netcoreapp2.1\Student_Manager.dll
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\bin\Debug\netcoreapp2.1\Student_Manager.pdb
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\obj\Debug\netcoreapp2.1\Student_Manager.csprojAssemblyReference.cache
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\obj\Debug\netcoreapp2.1\Student_Manager.csproj.CoreCompileInputs.cache
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\obj\Debug\netcoreapp2.1\Student_Manager.AssemblyInfoInputs.cache
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\obj\Debug\netcoreapp2.1\Student_Manager.AssemblyInfo.cs
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\obj\Debug\netcoreapp2.1\Student_Manager.dll
+C:\C#\Assignment 1\Module 1\Student_Manager\Student_Manager\obj\Debug\netcoreapp2.1\Student_Manager.pdb

@@ -1,0 +1,165 @@
+9:17:07 PM Wednesday, October 30, 2019  :  :System.NullReferenceException: Object reference not set to an instance of an object.
+   at AsynchronousChat.ChatMasterClass.Send(Socket handler) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 140
+9:17:34 PM Wednesday, October 30, 2019  :  :System.NullReferenceException: Object reference not set to an instance of an object.
+   at AsynchronousChat.ChatMasterClass.Send(Socket handler) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 140
+9:17:45 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.BeginReceive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, SocketError& errorCode, AsyncCallback callback, Object state)
+   at System.Net.Sockets.Socket.BeginReceive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags, AsyncCallback callback, Object state)
+   at AsynchronousChat.ChatMasterClass.Receive(Socket handler) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 85
+9:22:57 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:23:41 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:23:41 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:45:35 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:45:35 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:45:35 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:45:35 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:45:35 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+9:45:35 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+10:05:31 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+10:05:31 PM Wednesday, October 30, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+10:06:39 PM Wednesday, October 30, 2019  :  :System.NullReferenceException: Object reference not set to an instance of an object.
+   at AsynchronousChat.ChatMasterClass.Send(Socket handler) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 138
+10:06:43 PM Wednesday, October 30, 2019  :  :System.NullReferenceException: Object reference not set to an instance of an object.
+   at AsynchronousChat.ChatMasterClass.Send(Socket handler) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 138
+11:40:45 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+11:40:45 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+11:40:45 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+11:40:45 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+11:40:45 PM Wednesday, October 30, 2019  :  :System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult, SocketError& errorCode)
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+12:45:08 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+12:45:08 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:33:58 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:38 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103
+1:44:39 AM Thursday, October 31, 2019  :  :System.Net.Sockets.SocketException (0x80004005): An existing connection was forcibly closed by the remote host
+   at System.Net.Sockets.Socket.EndReceive(IAsyncResult asyncResult)
+   at AsynchronousChat.ChatMasterClass.ReceiveCallback(IAsyncResult ar) in C:\C#\Assignment 3\AsynchronousChat\AsynchronousChat\ChatMasterClass.cs:line 103

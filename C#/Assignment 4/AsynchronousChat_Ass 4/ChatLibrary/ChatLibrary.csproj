@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Delegates\Delegates.csproj" />
+    <ProjectReference Include="..\Logger\Logger.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="NewLogger">
+      <HintPath>..\..\..\..\Users\Student\Desktop\NewLogger\bin\Debug\netstandard2.0\NewLogger.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
