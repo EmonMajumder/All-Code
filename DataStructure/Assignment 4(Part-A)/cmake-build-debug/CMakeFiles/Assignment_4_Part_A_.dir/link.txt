@@ -1,0 +1,1 @@
+/usr/bin/c++.exe -g  -Wl,--enable-auto-import CMakeFiles/Assignment_4_Part_A_.dir/main.cpp.o  -o Assignment_4_Part_A_.exe -Wl,--out-implib,libAssignment_4_Part_A_.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/i/Data Structure/Assignment-5/HashTable.h
+
+/cygdrive/i/Data Structure/Assignment-5/main.cpp
+iostream
+-
+chrono
+-
+ctime
+-
+fstream
+-
+HashTable.h
+/cygdrive/i/Data Structure/Assignment-5/HashTable.h
+

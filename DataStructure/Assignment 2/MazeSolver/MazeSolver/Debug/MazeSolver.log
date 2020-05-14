@@ -1,0 +1,7 @@
+﻿  MazeSolver.cpp
+c:\datastructure\mazesolver\mazesolver\mazesolver.cpp(119): warning C4715: 'StartingPointY': not all control paths return a value
+c:\datastructure\mazesolver\mazesolver\mazesolver.cpp(135): warning C4715: 'EndPointX': not all control paths return a value
+c:\datastructure\mazesolver\mazesolver\mazesolver.cpp(151): warning C4715: 'EndPointY': not all control paths return a value
+c:\datastructure\mazesolver\mazesolver\mazesolver.cpp(43): warning C4172: returning address of local variable or temporary: size
+c:\datastructure\mazesolver\mazesolver\mazesolver.cpp(102): warning C4715: 'StartingPointX': not all control paths return a value
+  MazeSolver.vcxproj -> C:\DataStructure\MazeSolver\Debug\MazeSolver.exe

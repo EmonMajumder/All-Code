@@ -1,0 +1,38 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/cygdrive/i/Data Structure/Assignment-4/BST.cpp
+BST.h
+/cygdrive/i/Data Structure/Assignment-4/BST.h
+Node.h
+/cygdrive/i/Data Structure/Assignment-4/Node.h
+
+/cygdrive/i/Data Structure/Assignment-4/BST.h
+Node.h
+/cygdrive/i/Data Structure/Assignment-4/Node.h
+
+/cygdrive/i/Data Structure/Assignment-4/Node.h
+
+/cygdrive/i/Data Structure/Assignment-4/main.cpp
+iostream
+-
+chrono
+-
+ctime
+-
+fstream
+-
+algorithm
+-
+regex
+-
+BST.h
+/cygdrive/i/Data Structure/Assignment-4/BST.h
+BST.cpp
+/cygdrive/i/Data Structure/Assignment-4/BST.cpp
+
