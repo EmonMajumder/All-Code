@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/CopyString.dir/main.c.o  -o CopyString.exe -Wl,--out-implib,libCopyString.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

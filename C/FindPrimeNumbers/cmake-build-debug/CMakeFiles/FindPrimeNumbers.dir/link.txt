@@ -1,0 +1,1 @@
+/usr/bin/cc -g  -Wl,--enable-auto-import CMakeFiles/FindPrimeNumbers.dir/main.c.o  -o FindPrimeNumbers.exe -Wl,--out-implib,libFindPrimeNumbers.dll.a -Wl,--major-image-version,0,--minor-image-version,0 

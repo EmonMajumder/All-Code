@@ -1,0 +1,3 @@
+/cygdrive/i/All-Code/C/CopyFile/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/cygdrive/i/All-Code/C/CopyFile/cmake-build-debug/CMakeFiles/CopyFile.dir
+/cygdrive/i/All-Code/C/CopyFile/cmake-build-debug/CMakeFiles/edit_cache.dir
