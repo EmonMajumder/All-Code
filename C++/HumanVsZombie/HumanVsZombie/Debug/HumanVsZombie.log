@@ -1,0 +1,17 @@
+﻿  City.cpp
+  Human.cpp
+c:\c++\humanvszombie\humanvszombie\human.cpp(62): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  HumanVsZombie.cpp
+c:\c++\humanvszombie\humanvszombie\humanvszombie.cpp(44): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Zombie.cpp
+c:\c++\humanvszombie\humanvszombie\zombie.cpp(91): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  Generating Code...
+  HumanVsZombie.vcxproj -> C:\C++\HumanVsZombie\Debug\HumanVsZombie.exe
