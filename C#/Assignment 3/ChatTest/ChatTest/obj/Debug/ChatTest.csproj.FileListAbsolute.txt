@@ -1,7 +1,0 @@
-C:\C#\Assignment 3\ChatTest\ChatTest\bin\Debug\ChatTest.exe.config
-C:\C#\Assignment 3\ChatTest\ChatTest\bin\Debug\ChatTest.exe
-C:\C#\Assignment 3\ChatTest\ChatTest\bin\Debug\ChatTest.pdb
-C:\C#\Assignment 3\ChatTest\ChatTest\obj\Debug\ChatTest.csproj.CoreCompileInputs.cache
-C:\C#\Assignment 3\ChatTest\ChatTest\obj\Debug\ChatTest.exe
-C:\C#\Assignment 3\ChatTest\ChatTest\obj\Debug\ChatTest.pdb
-C:\C#\Assignment 3\ChatTest\ChatTest\obj\Debug\ChatTest.csprojAssemblyReference.cache

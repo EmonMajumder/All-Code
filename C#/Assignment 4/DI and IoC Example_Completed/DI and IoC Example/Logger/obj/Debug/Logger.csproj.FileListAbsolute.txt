@@ -1,4 +1,0 @@
-C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\Logger\bin\Debug\Logger.dll
-C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\Logger\bin\Debug\Logger.pdb
-C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\Logger\obj\Debug\Logger.dll
-C:\Users\NSCCSTUDENT\Desktop\PROG2200-701\w0244079\DI and IoC Example\Logger\obj\Debug\Logger.pdb

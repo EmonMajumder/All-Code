@@ -1,6 +1,0 @@
-C:\C#\Assignment 2\Chat\Server\bin\Debug\Server.dll
-C:\C#\Assignment 2\Chat\Server\bin\Debug\Server.pdb
-C:\C#\Assignment 2\Chat\Server\obj\Debug\Server.csproj.CoreCompileInputs.cache
-C:\C#\Assignment 2\Chat\Server\obj\Debug\Server.dll
-C:\C#\Assignment 2\Chat\Server\obj\Debug\Server.pdb
-C:\C#\Assignment 2\Chat\Server\obj\Debug\Server.csprojAssemblyReference.cache
