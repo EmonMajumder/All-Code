@@ -1,3 +1,0 @@
-This is the FIRSTtext file.
-It has a few lines of text in it.
-Can you read it from file?
