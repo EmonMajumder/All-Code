@@ -1,1 +1,1 @@
-#Git Folder for Assignments
+#Git Folder for Java
