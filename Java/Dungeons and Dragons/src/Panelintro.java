@@ -14,7 +14,7 @@ public class Panelintro extends JPanel {
         add(Box.createRigidArea(new Dimension(0, 20)));
 
         //Heading JLabel.
-        JLabel gameName = new JLabel("Dangeon and Dragons");
+        JLabel gameName = new JLabel("Dungeons and Dragons");
         gameName.setPreferredSize(new Dimension(400,100));
         gameName.setAlignmentX(Component.CENTER_ALIGNMENT);
         gameName.setFont(new Font("Old English Text MT",1,40));

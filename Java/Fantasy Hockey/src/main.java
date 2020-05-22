@@ -1,6 +1,6 @@
 import java.util.Scanner;       /*Import Scanner Class for input from User*/
 
-public class Main {             /*Declaring Main Class as public Class*/
+public class main {             /*Declaring Main Class as public Class*/
 
     public static void main(String[] args) {        /*Void Represent no value is returned.*/
 
