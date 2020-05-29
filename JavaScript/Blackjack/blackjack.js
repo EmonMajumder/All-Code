@@ -5,31 +5,28 @@ $(function() {
   let playerscore=0;
   let deckid = 0;
   let result = "";
-  let hiddencard = "";
   let round = 0;
   let totalcoin = 1000;
+  let totalcoinbase = 1000;
   let bet = 100;
   let betbase = 100;
   let remaining = 52;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
-  let card = "https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1"; 
   
   
   //----------------------------------------------------------------------------Modals---------------------------------------------------------------------------------
 
   $("#modalbet").modal();
-  $("#betamount").html(setcoininplaceof0(betbase));
-  $("#totalcoinown").html("You Own: "+setcoininplaceof0(totalcoin));
-
+  $("#modalroundresult").modal();
 
   $("#btnmodalStartGame").click(()=>{
     $("#btnPlay").text("Restart");
     $("#coverphoto").css("display","none");
+    $("#roundandcoin").css("visibility","visible");
+    $(".hide").removeClass("hide");
     $("#modalbet").modal("close");
     nextround();
   });
-
-  coverphoto
   
   $("#betup").click(()=>{
     if(bet<totalcoin)
@@ -49,9 +46,7 @@ $(function() {
       bet-=betbase;
     }    
     $("#betamount").html(setcoininplaceof0(bet));
-  });
-
-  $("#modalroundresult").modal();
+  });  
 
   $("#btnmodalnextround").click(()=>{
     $("#modalroundresult").modal("close");
@@ -60,10 +55,12 @@ $(function() {
 
   $("#btnmodalrestart").click(()=>{
     $("#modalroundresult").modal("close");
-    startnewgame();
+    $("#btnPlay").trigger("click");
   });  
 
   $("#btnmodalraisebet").click(()=>{
+    $("#betamount").html(setcoininplaceof0(bet));
+    $("#totalcoinown").html(setcoininplaceof0(totalcoin));
     $("#modalroundresult").modal("close");
   });
 
@@ -73,6 +70,8 @@ $(function() {
 
   //----------------------------------------------------------------------------Buttons---------------------------------------------------------------------------------
   $("#btnPlay").click(()=>{
+    $("#betamount").html(setcoininplaceof0(betbase));
+    $("#totalcoinown").html(setcoininplaceof0(totalcoinbase));
     startnewgame();     
   });
 
@@ -97,19 +96,30 @@ $(function() {
   })
   
 //----------------------------------------------------------------------------Functions---------------------------------------------------------------------------------
-  function startnewgame(){    
-    getdeck.then((deck)=>{
-      totalcoin = 1000;
-      deckid = deck.deck_id;
-      getcard();    
-    });   
+  function startnewgame(){
+    totalcoin = totalcoinbase;
+    bet = betbase;
+    getnewdeck(nextround);
+  }
+
+  function getnewdeck(_callback){
+    fetch(deck)
+    .then(response => response.json())
+    .then(data =>
+    {    
+      console.log("hit1");    
+      deckid = data.deck_id;      
+    })
+    .then(()=>{
+      _callback();
+    })    
   }
 
   function didplayerlose()
   {
     if(playerscore>21)
     {
-      result = "You Lose";     
+      result = "You Lose";         
     }
     showorhidebutton();
   }
@@ -138,16 +148,16 @@ $(function() {
       round++;
     }    
 
-    $("#coin").text("You Own: "+totalcoin);
-    $("#totalcoinown").html("You Own: "+setcoininplaceof0(totalcoin));
+    $("#coin").text(totalcoin);
+    $("#totalcoinown").html(setcoininplaceof0(totalcoin));
     showorhidebutton();    
   };
 
   function showorhidebutton(){
     if(result=="Draw" || result=="You Won" || result=="You Lose")
     { 
-      $("#coinafter").text(`${totalcoin}`);
-      $("#roundresult").text(`${result}`);
+      $("#coinafter").text(totalcoin);
+      $("#roundresult").text(result);
 
       if(totalcoin==0)
       {
@@ -164,7 +174,10 @@ $(function() {
       if(bet>totalcoin)
       {
         bet=totalcoin;
-      }
+        if(bet<betbase){
+          bet=betbase;
+        }
+      }      
     }
     else{
       $("#btnHit").css("display","inline");
@@ -190,16 +203,10 @@ $(function() {
     round++;
     result = "";
 
-    $("#roundandcoin").css("visibility","visible");
+    $("#coin").text(totalcoin);
+    $("#round").text(round);    
+    $("#betting").text(bet)
 
-    $("#coin").text(`You Own: ${totalcoin}`);
-    $("#round").text(`Round: ${round}`);    
-    $("#betting").text(`Bet: ${bet}`)
-
-    if(totalcoin==0)
-    {
-      $("#btnNext").css("display","none");
-    }
     $("#dealercards").empty();
     $("#playercards").empty();
 
@@ -246,6 +253,7 @@ $(function() {
   }
 
   function hit(){
+    $("#dealer_score").toggleClass("dealerscoreanimation");
     fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
       .then(response => response.json())
       .then(data =>
@@ -274,10 +282,10 @@ $(function() {
         })
         .then(()=>{
           dealerscoreresult();
-          $("#dealer_score").text(`Dealer: ${dealerscore}`);
+          $("#dealer_score").text(dealerscore);
         })       
       }else{
-        $("#dealer_score").text(`Dealer: ${dealerscore}`);
+        $("#dealer_score").text(dealerscore);
       }
       wait(2000);
       winorlose();
@@ -314,7 +322,7 @@ $(function() {
       dealercards[dealercards.indexOf("ACE")] = "A";
     }
 
-    $("#dealer_score").html(`<h5>Dealer: ${dealerscore-cardvalue(dealercards[0])}</h5>`);
+    $("#dealer_score").text(dealerscore-cardvalue(dealercards[0]));
   }
 
   function playerscoreresult()
@@ -327,7 +335,7 @@ $(function() {
       playercards[playercards.indexOf("ACE")] = "A";
     }
 
-    $("#player_score").text(`Player: ${playerscore}`);
+    $("#player_score").text(playerscore);
   }
 
   function calculatescore(cardset){
@@ -337,34 +345,6 @@ $(function() {
       score = score+cardvalue(cardset[i]);
     }
     return score;
-  }
-
-
-  //------------------------------------------------------------------------FunctionswithPromise------------------------------------------------------------------------------
-  let getdeck = new Promise((resolve,reject)=>{
-    fetch(deck)
-    .then(response => response.json())
-    .then(data =>
-    {        
-      if(data.success)
-      {
-        resolve(data);
-      }
-      else{
-        reject("Error");
-      }
-    })
-  })
-
-  function getcard(){
-    getnextcard = new Promise((resolve,reject)=>{
-      fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
-      .then(response => response.json())
-      .then(data =>
-      {        
-        
-      })
-    })
   }
 })
   

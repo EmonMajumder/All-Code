@@ -74,9 +74,22 @@
   }
 
   .cardshown{
+    div{
+      font-size: 30px;
+      font-weight: bold;
+    }
     img{
       width: 150px;
     }
+  }
+
+  // @keyframes example {
+  //   to {color:white;}
+  // }
+
+  .dealerscoreanimation{
+    transition: color 2s;
+    color: white;
   }
   
   

@@ -9093,7 +9093,18 @@ input[type=range]::-ms-thumb {
   width: 50px;
 }
 
+.cardshown div {
+  font-size: 30px;
+  font-weight: bold;
+}
+
 .cardshown img {
   width: 150px;
+}
+
+.dealerscoreanimation {
+  -webkit-transition: color 2s;
+  transition: color 2s;
+  color: white;
 }
 /*# sourceMappingURL=materialize.css.map */

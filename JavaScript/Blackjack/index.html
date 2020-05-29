@@ -10,26 +10,30 @@
     <body>        
         <div class="container center-align">
             <img id="coverphoto" src="cover.png" width=60% style="z-index: -1000;">
-            <!-- <h4 id="startscreencoin" class="center-wrapper"><img src="coin.png" width="50px">&nbsp;1000</h4> -->
-            <div class="row showroundandcoin" id="roundandcoin" style="visibility: hidden;">
-                <div class="col s4 center-wrapper">                                                    
-                    <img src="coin.png"><div id="coin"></div>
-                </div> 
-                <div class="col s4">
-                    <div id="round"></div> 
+
+            <div class="hide">
+                <div class="row showroundandcoin" id="roundandcoin">
+                    <div class="col s4 center-wrapper">                                                    
+                        <img src="coin.png">You have:&nbsp;<div id="coin"></div>
+                    </div> 
+                    <div class="col s4 center-wrapper">
+                        Round:&nbsp;<div id="round"></div> 
+                    </div>
+                    <div class="col s4 center-wrapper">
+                        <img src="coin.png">Bet:&nbsp;<div id="betting"></div>                  
+                    </div>                               
                 </div>
-                <div class="col s4 center-wrapper">
-                    <img src="coin.png"><div id="betting"></div>                  
-                </div>                               
-            </div>
-
-            <h5 id="dealer_score"></h5>
-            <div class="cardshown" id="dealercards"></div>
-            
+    
+                <div class="cardshown" id="dealercards"></div>            
+                <div class="center-wrapper cardshown">
+                    <div>Dealer:&nbsp;</div><div id="dealer_score"></div>
+                </div>
+                <div class="center-wrapper cardshown">
+                    <div>You:&nbsp;</div><div id="player_score"></div>
+                </div>
+                <div class="cardshown" id="playercards"></div>            
+            </div>           
             <br>
-            <div class="cardshown" id="playercards"></div>            
-            <h5 id="player_score"></h5>
-
             <div class="row center-align" id="allbuttons">
                 <button data-target="modalbet" class="btn modal-trigger waves-effect waves-light" id="btnPlay">play</button>   
                 <button class="btn" id="btnHit">Hit</button>
@@ -42,7 +46,7 @@
         <div class="modal" id="modalbet">
             <div class="modal-content center-align">
                 <div class="totalcoindiv">
-                    <div id="totalcoinown"></div>
+                    <div>You Have:&nbsp;<div id="totalcoinown"></div></div>
                 </div>
                 <br>                
                 <div class="row">
