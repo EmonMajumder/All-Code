@@ -11,6 +11,7 @@ $(function() {
   let bet = 100;
   let betbase = 100;
   let remaining = 52;
+  let playercardcount = 2;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
   
   
@@ -25,7 +26,7 @@ $(function() {
     $("#roundandcoin").css("visibility","visible");
     $(".hide").removeClass("hide");
     $("#modalbet").modal("close");
-    nextround();
+    startnewgame();
   });
   
   $("#betup").click(()=>{
@@ -70,10 +71,13 @@ $(function() {
 
   //----------------------------------------------------------------------------Buttons---------------------------------------------------------------------------------
   $("#btnPlay").click(()=>{
-    $("#betamount").html(setcoininplaceof0(betbase));
-    $("#totalcoinown").html(setcoininplaceof0(totalcoinbase));
-    startnewgame();     
+    bet = betbase;
+    totalcoin = totalcoinbase;
+    $("#betamount").html(setcoininplaceof0(bet));
+    $("#totalcoinown").html(setcoininplaceof0(totalcoin));         
   });
+
+  
 
   $("#btnHit").click(()=>{
     hit();
@@ -91,14 +95,9 @@ $(function() {
   $("#btnStay").css("display","none");
   $("#btnNext").css("display","none");
   
-  $("#card").click(function(){
-    $(this).toggleClass('is-flipped');
-  })
-  
 //----------------------------------------------------------------------------Functions---------------------------------------------------------------------------------
+
   function startnewgame(){
-    totalcoin = totalcoinbase;
-    bet = betbase;
     getnewdeck(nextround);
   }
 
@@ -106,8 +105,7 @@ $(function() {
     fetch(deck)
     .then(response => response.json())
     .then(data =>
-    {    
-      console.log("hit1");    
+    {        
       deckid = data.deck_id;      
     })
     .then(()=>{
@@ -166,8 +164,7 @@ $(function() {
       }else{
         $("#btnNext").css("display","inline");
       }
-
-      $("#modalroundresult").modal("open");        
+       
       $("#btnHit").css("display","none");
       $("#btnStay").css("display","none");
       
@@ -177,7 +174,10 @@ $(function() {
         if(bet<betbase){
           bet=betbase;
         }
-      }      
+      }
+
+      $("#modalroundresult").modal("open");
+           
     }
     else{
       $("#btnHit").css("display","inline");
@@ -206,50 +206,93 @@ $(function() {
     $("#coin").text(totalcoin);
     $("#round").text(round);    
     $("#betting").text(bet)
+    $("#btnNext").css("display","none");
 
     $("#dealercards").empty();
     $("#playercards").empty();
+    $("#dealer_score").text("");
+    $("#player_score").text("");
 
     fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=4")
       .then(response => response.json())
       .then(data => 
       {
-        console.log(data.deck_id);
-        remaining = data.remaining;        
-      
-        for(let i=0; i<data.cards.length;i++)
-        {
-          if(i%2 == 0)
-          {
-            playercards.push(data.cards[i].value);
-            $("#playercards").append(`<img src="${data.cards[i].image}">&nbsp;&nbsp;`)
-          }   
-          else{
-            dealercards.push(data.cards[i].value);
-            if(i==1)
-            {
-              $("#dealercards").append(
-                `<div class="scene scene--card">
-                  <div class="tcard">
-                    <img class="card__face card__face--front" src="cardback.png">
-                    <img class="card__face card__face--back" src="${data.cards[1].image}">
-                  </div>
-                </div>&nbsp;&nbsp;`)
-            }
-            else{
-              $("#dealercards").append(`<img src="${data.cards[i].image}">&nbsp;&nbsp;`);
-            }
-          }
-        }
+        remaining = data.remaining;
 
-        $(".tcard").click(function(){
-          $(this).toggleClass('is-flipped');
+        $("#playercards").append(`<img class="cardgiven" id="playercard1" src="${data.cards[0].image}">&nbsp;&nbsp;`)
+        playercards.push(data.cards[0].value);
+
+        $("#dealercards").append(
+          `<div class="scene cardgiven" id="dealercard1">
+            <div class="tcard">
+              <img class="card__face card__face--front" src="cardback.png">
+              <img class="card__face card__face--back" src="${data.cards[1].image}">
+            </div>
+          </div>&nbsp;&nbsp;`)
+        dealercards.push(data.cards[1].value);
+
+        $("#playercards").append(`<img class="cardgiven" id="playercard2" src="${data.cards[2].image}">&nbsp;&nbsp;`)
+        playercards.push(data.cards[2].value);
+
+        $("#dealercards").append(`<img class="cardgiven" id="dealercard2" src="${data.cards[3].image}">&nbsp;&nbsp;`)
+        dealercards.push(data.cards[3].value);
+
+        $("#playercard1").toggleClass("driveInTop");
+
+        $("#playercard1").bind("animationend",function(){
+          $("#dealercard1").toggleClass("driveInTop");
         })
 
-        dealerscoreresult();
-        playerscoreresult();
-        didplayerlose();
+        $("#dealercard1").bind("animationend",function(){
+          $("#playercard2").toggleClass("driveInTop");
+        })
+
+        $("#playercard2").bind("animationend",function(){
+          $("#dealercard2").toggleClass("driveInTop");
+        })
+
+        $("#dealercard2").bind("animationend",function(){
+          dealerscoreresult();
+          playerscoreresult();
+        })       
+      
+        // for(let i=0; i<data.cards.length;i++)
+        // {
+        //   if(i%2 == 0)
+        //   {
+        //     playercards.push(data.cards[i].value);
+        //     $("#playercards").append(`<img src="${data.cards[i].image}">&nbsp;&nbsp;`)
+        //   }   
+        //   else{
+        //     dealercards.push(data.cards[i].value);
+        //     if(i==1)
+        //     {
+        //       $("#dealercards").append(
+        //         `<div class="scene driveInTop">
+        //           <div class="tcard">
+        //             <img class="card__face card__face--front" src="cardback.png">
+        //             <img class="card__face card__face--back" src="${data.cards[1].image}">
+        //           </div>
+        //         </div>&nbsp;&nbsp;`)
+        //     }
+        //     else{
+        //       $("#dealercards").append(`<img class="driveInTop" src="${data.cards[i].image}">&nbsp;&nbsp;`);
+        //     }
+        //   }
+        //}
+
+        // $(".tcard").click(function(){
+        //   $(this).toggleClass('is-flipped');
+        // })
+
+        // dealerscoreresult();
+        // playerscoreresult();
+        // didplayerlose();
       })
+  }
+
+  function cardenteranimation(){
+
   }
 
   function hit(){
@@ -259,14 +302,21 @@ $(function() {
       .then(data =>
       {
         if(data.success){
-          console.log(data);
+          playercardcount++;
           playercards.push(data.cards[0].value);
-          $("#playercards").append(`<img src="${data.cards[0].image}">&nbsp;&nbsp;`);       
-          playerscoreresult();
-          didplayerlose();
+          $("#playercards").append(`<img class="cardgiven" id="playercards${playercardcount}" src="${data.cards[0].image}">&nbsp;&nbsp;`);
+          $(`#playercards${playercardcount}`).toggleClass("driveInTop"); 
+          $(`#playercards${playercardcount}`).bind("animationend",function(){
+            $("#player_score").toggleClass("popIn popOut");            
+          })
+
+          $("#player_score").bind("animationend",function(){
+            $("#player_score").removeClass("popOut");
+            playerscoreresult();            
+          })           
         }
       })           
-    }
+  }
 
   function stay(){
     $(".tcard").toggleClass('is-flipped');
@@ -287,7 +337,6 @@ $(function() {
       }else{
         $("#dealer_score").text(dealerscore);
       }
-      wait(2000);
       winorlose();
     })  
   }
@@ -322,7 +371,8 @@ $(function() {
       dealercards[dealercards.indexOf("ACE")] = "A";
     }
 
-    $("#dealer_score").text(dealerscore-cardvalue(dealercards[0]));
+    $("#dealer_score").toggleClass("popIn");
+    $("#dealer_score").text(dealerscore-cardvalue(dealercards[0]));    
   }
 
   function playerscoreresult()
@@ -335,7 +385,14 @@ $(function() {
       playercards[playercards.indexOf("ACE")] = "A";
     }
 
+    $("#player_score").toggleClass("popIn");
+    $("#animation").toggleClass("popIn");
     $("#player_score").text(playerscore);
+
+    $("#animation").bind("animationend",function(){
+      didplayerlose();
+      console.log("hit");
+    })
   }
 
   function calculatescore(cardset){
