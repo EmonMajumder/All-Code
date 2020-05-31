@@ -100,6 +100,22 @@ $(function() {
 
 //---------------------------------------------------------------------------Bind Animation----------------------------------------------------------------------------- 
 
+  $("#animationdealercard").bind("animationend",function(){
+    $("#animationdealercard").toggleClass("popIn");
+    $("#dealer_score").toggleClass("popOut popIn");
+    $("#dealer_score").text(dealerscore);  
+    $("#animationdealercard2").toggleClass("popIn");
+    console.log("hit3");
+  })
+
+  $("#animationdealercard2").bind("animationend",function(){
+    $("#animationdealercard2").toggleClass("popIn");
+    winorlose();
+    $("#dealer_score").removeClass("popIn");
+    console.log("hit4");
+  })
+
+
   $("#animation").bind("animationend",function(){
     $("#animation").toggleClass("popIn");
     $("#player_score").removeClass("popIn");
@@ -345,13 +361,11 @@ $(function() {
           $("#dealercards").append(`<img src="${data.cards[0].image}">`);
         })
         .then(()=>{
-          dealerscoreresult();
-          $("#dealer_score").text(dealerscore);
+          dealerscoreresultfinal();          
         })       
       }else{
-        $("#dealer_score").text(dealerscore);
+        dealerscoreresultfinal();
       }
-      winorlose();
     })  
   }
 
@@ -373,6 +387,19 @@ $(function() {
     {         
       return parseInt(cardinhand,10);
     }
+  }
+  function dealerscoreresultfinal()
+  {
+    dealerscore = calculatescore(dealercards);
+
+    if(dealerscore>21 && dealercards.includes("ACE"))
+    {
+      dealerscore-=10;
+      dealercards[dealercards.indexOf("ACE")] = "A";
+    }
+
+    $("#dealer_score").toggleClass("popIn popOut");
+    $("#animationdealercard").toggleClass("popIn");  
   }
 
   function dealerscoreresult()
