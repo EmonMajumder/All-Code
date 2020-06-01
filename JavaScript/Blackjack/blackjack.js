@@ -1,8 +1,10 @@
 $(function() {
   let dealercards= [];
   let playercards= [];
+  let playercards2=[];
   let dealerscore=0;
   let playerscore=0;
+  let playerscore2=0;
   let deckid = 0;
   let result = "";
   let round = 0;
@@ -12,6 +14,7 @@ $(function() {
   let betbase = 100;
   let remaining = 52;
   let playercardcount = 2;
+  let dealercardcount = 2;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
   
   
@@ -91,13 +94,16 @@ $(function() {
     nextround();
   });
 
+  $("#btnSplit").click(()=>{
+    split();
+  });
+
   $("#btnHit").css("display","none");
   $("#btnStay").css("display","none");
   $("#btnNext").css("display","none");
+  $("#btnSplit").css("display","none");
+
   
-//----------------------------------------------------------------------------Functions---------------------------------------------------------------------------------
-
-
 //---------------------------------------------------------------------------Bind Animation----------------------------------------------------------------------------- 
 
   $("#animationdealercard").bind("animationend",function(){
@@ -110,17 +116,26 @@ $(function() {
 
   $("#animationdealercard2").bind("animationend",function(){
     $("#animationdealercard2").toggleClass("popIn");
-    winorlose();
+    if(dealerscore<17){
+      getcardfordealer();
+    }
+    else{
+      winorlose();
+    }    
     $("#dealer_score").removeClass("popIn");
     console.log("hit4");
   })
 
-
   $("#animation").bind("animationend",function(){
     $("#animation").toggleClass("popIn");
     $("#player_score").removeClass("popIn");
-    didplayerlose();
-    console.log("hit");
+    if(playercardcount == 2){
+      isitblackjack();
+    }
+    else{
+      didplayerlose();
+      console.log("hit");
+    }    
   })
 
   $("#animation2").bind("animationend",function(){
@@ -130,7 +145,22 @@ $(function() {
     console.log("hit2");
   })
 
+  $("#animationdealercard3").bind("animationend",function(){
+    $("#animationdealercard3").removeClass("popIn");
+    $("#dealer_score").removeClass("popIn");
+  })
 
+//----------------------------------------------------------------------------Functions---------------------------------------------------------------------------------
+
+function split(){
+  $(".split").toggleClass("s12 s6");
+  $("#extraset").html(
+    `<div class="center-wrapper cardshown">
+      <div>You&nbsp;</div><div id="player2_score"></div>
+    </div>
+    <div class="cardshown" id="playercards2" style="height:210px"></div>`
+    );
+}
   function startnewgame(){
     getnewdeck(nextround);
   }
@@ -145,6 +175,14 @@ $(function() {
     .then(()=>{
       _callback();
     })    
+  }
+
+  function isitblackjack(){
+    if(playerscore == 21){
+      result = "BlackJack";
+
+    }
+    showorhidebutton();
   }
 
   function didplayerlose()
@@ -162,22 +200,18 @@ $(function() {
     {
       result = "You Won";
       totalcoin+=bet*2;
-      round++;
     }
     else if(21-dealerscore > 21-playerscore)
     {
       result = "You Won";
       totalcoin+=bet*2;
-      round++;
     }
     else if(21-dealerscore < 21-playerscore){
       result = "You Lose";
-      round++;
     }
     else{
       result = "Draw";
       totalcoin+=bet;
-      round++;
     }    
 
     $("#coin").text(totalcoin);
@@ -186,7 +220,7 @@ $(function() {
   };
 
   function showorhidebutton(){
-    if(result=="Draw" || result=="You Won" || result=="You Lose")
+    if(result=="Draw" || result=="You Won" || result=="You Lose" || result=="BlackJack")
     { 
       $("#coinafter").text(totalcoin);
       $("#roundresult").text(result);
@@ -197,6 +231,8 @@ $(function() {
         $("#btnmodalnextround").css("display","none");
       }else{
         $("#btnNext").css("display","inline");
+        $("#btnmodalraisebet").css("display","inline");
+        $("#btnmodalnextround").css("display","inline");
       }
        
       $("#btnHit").css("display","none");
@@ -210,8 +246,7 @@ $(function() {
         }
       }
 
-      $("#modalroundresult").modal("open");
-           
+      $("#modalroundresult").modal("open");           
     }
     else{
       $("#btnHit").css("display","inline");
@@ -236,11 +271,14 @@ $(function() {
     totalcoin-=bet;
     round++;
     result = "";
+    playercardcount = 2;
 
     $("#coin").text(totalcoin);
     $("#round").text(round);    
     $("#betting").text(bet)
     $("#btnNext").css("display","none");
+    $("#btnSplit").css("display","none");
+  
 
     $("#dealercards").empty();
     $("#playercards").empty();
@@ -288,45 +326,11 @@ $(function() {
         $("#dealercard2").bind("animationend",function(){
           dealerscoreresult();
           playerscoreresult();
+          if(playercards[0] == playercards[1]){
+            $("#btnSplit").css("display","inline");
+          }
         })       
-      
-        // for(let i=0; i<data.cards.length;i++)
-        // {
-        //   if(i%2 == 0)
-        //   {
-        //     playercards.push(data.cards[i].value);
-        //     $("#playercards").append(`<img src="${data.cards[i].image}">&nbsp;&nbsp;`)
-        //   }   
-        //   else{
-        //     dealercards.push(data.cards[i].value);
-        //     if(i==1)
-        //     {
-        //       $("#dealercards").append(
-        //         `<div class="scene driveInTop">
-        //           <div class="tcard">
-        //             <img class="card__face card__face--front" src="cardback.png">
-        //             <img class="card__face card__face--back" src="${data.cards[1].image}">
-        //           </div>
-        //         </div>&nbsp;&nbsp;`)
-        //     }
-        //     else{
-        //       $("#dealercards").append(`<img class="driveInTop" src="${data.cards[i].image}">&nbsp;&nbsp;`);
-        //     }
-        //   }
-        //}
-
-        // $(".tcard").click(function(){
-        //   $(this).toggleClass('is-flipped');
-        // })
-
-        // dealerscoreresult();
-        // playerscoreresult();
-        // didplayerlose();
       })
-  }
-
-  function cardenteranimation(){
-
   }
 
   function hit(){
@@ -347,26 +351,26 @@ $(function() {
         }
       })           
   }
-
-  function stay(){
-    $(".tcard").toggleClass('is-flipped');
-
-    $(".tcard").bind("transitionend",function(){
-      if(dealerscore<17)
-      {
-        fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
+  function getcardfordealer(){
+    dealercardcount++;
+    fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
         .then(response => response.json())
         .then((data)=>{
           dealercards.push(data.cards[0].value);
-          $("#dealercards").append(`<img src="${data.cards[0].image}">`);
-        })
-        .then(()=>{
-          dealerscoreresultfinal();          
-        })       
-      }else{
+          $("#dealercards").append(`<img class="cardgiven" id="dealercard${dealercardcount}" src="${data.cards[0].image}">&nbsp;&nbsp;`);
+          $(`#dealercard${dealercardcount}`).toggleClass("driveInTop"); 
+          $(`#dealercard${dealercardcount}`).bind("animationend",function(){
+            dealerscoreresultfinal();
+          })                      
+        })  
+  }
+
+  function stay(){
+    $(".tcard").toggleClass('is-flipped');  
+
+    $(".tcard").bind("transitionend",function(){
         dealerscoreresultfinal();
-      }
-    })  
+      });
   }
 
   function cardvalue(cardinhand)
@@ -413,6 +417,7 @@ $(function() {
     }
 
     $("#dealer_score").toggleClass("popIn");
+    $("#animationdealercard3").toggleClass("popIn");
     $("#dealer_score").text(dealerscore-cardvalue(dealercards[1]));    
   }
 
@@ -431,22 +436,6 @@ $(function() {
     $("#animation").toggleClass("popIn");
     $("#player_score").text(playerscore);
   }
-
-  // function playerscoreresult()
-  // {
-  //   console.log("playerscoreresult");
-  //   playerscore = calculatescore(playercards);
-
-  //   if(playerscore>21 && playercards.includes("ACE"))
-  //   {
-  //     playerscore-=10;
-  //     playercards[playercards.indexOf("ACE")] = "A";
-  //   }
-
-  //   $("#player_score").toggleClass("popIn");
-  //   $("#animation").toggleClass("popIn");
-  //   $("#player_score").text(playerscore);
-  // }
 
   function calculatescore(cardset){
     let score = 0;
