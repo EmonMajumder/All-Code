@@ -2,6 +2,7 @@ $(function() {
   let dealercards= [];
   let playercards= [];
   let playercards2=[];
+  let playercards2image="";
   let dealerscore=0;
   let playerscore=0;
   let playerscore2=0;
@@ -14,10 +15,23 @@ $(function() {
   let betbase = 100;
   let remaining = 52;
   let playercardcount = 2;
+  let playercard2count = 2;
   let dealercardcount = 2;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
   
+  //----------------------------------------------------------------------------hiding elements------------------------------------------------------------------------
+  $("#btnHit2").css("display","none");
+  $("#btnStay2").css("display","none");
   
+
+
+
+
+
+
+
+
+
   //----------------------------------------------------------------------------Modals---------------------------------------------------------------------------------
 
   $("#modalbet").modal();
@@ -76,6 +90,7 @@ $(function() {
   $("#btnPlay").click(()=>{
     bet = betbase;
     totalcoin = totalcoinbase;
+    round = 0;
     $("#betamount").html(setcoininplaceof0(bet));
     $("#totalcoinown").html(setcoininplaceof0(totalcoin));         
   });
@@ -103,7 +118,7 @@ $(function() {
   $("#btnNext").css("display","none");
   $("#btnSplit").css("display","none");
 
-  
+
 //---------------------------------------------------------------------------Bind Animation----------------------------------------------------------------------------- 
 
   $("#animationdealercard").bind("animationend",function(){
@@ -152,15 +167,7 @@ $(function() {
 
 //----------------------------------------------------------------------------Functions---------------------------------------------------------------------------------
 
-function split(){
-  $(".split").toggleClass("s12 s6");
-  $("#extraset").html(
-    `<div class="center-wrapper cardshown">
-      <div>You&nbsp;</div><div id="player2_score"></div>
-    </div>
-    <div class="cardshown" id="playercards2" style="height:210px"></div>`
-    );
-}
+
   function startnewgame(){
     getnewdeck(nextround);
   }
@@ -291,22 +298,24 @@ function split(){
       {
         remaining = data.remaining;
 
-        $("#playercards").append(`<img class="cardgiven" id="playercard1" src="${data.cards[0].image}">&nbsp;&nbsp;`)
+        $("#playercards").append(`<img class="cardgiven" id="playercard1" src="${data.cards[0].image}">`)
         playercards.push(data.cards[0].value);
 
-        $("#dealercards").append(`<img class="cardgiven" id="dealercard1" src="${data.cards[1].image}">&nbsp;&nbsp;`)
+        $("#dealercards").append(`<img class="cardgiven" id="dealercard1" src="${data.cards[1].image}">`)
         dealercards.push(data.cards[1].value);
 
-        $("#playercards").append(`<img class="cardgiven" id="playercard2" src="${data.cards[2].image}">&nbsp;&nbsp;`)
-        playercards.push(data.cards[2].value);
+        $("#playercards").append(`&nbsp;&nbsp;<img class="cardgiven" id="playercard2" src="${data.cards[2].image}">`)
+        playercards2image = data.cards[2].image;
+        //playercards.push(data.cards[2].value);
+        playercards.push(data.cards[0].value);
 
         $("#dealercards").append(
-          `<div class="scene cardgiven" id="dealercard2">
+          `&nbsp;&nbsp;<div class="scene cardgiven" id="dealercard2">
             <div class="tcard">
               <img class="card__face card__face--front" src="cardback.png">
               <img class="card__face card__face--back" src="${data.cards[3].image}">
             </div>
-          </div>&nbsp;&nbsp;`)
+          </div>`)
         dealercards.push(data.cards[3].value);        
 
         $("#playercard1").toggleClass("driveInTop");
@@ -342,7 +351,17 @@ function split(){
         if(data.success){
           playercardcount++;
           playercards.push(data.cards[0].value);
-          $("#playercards").append(`<img class="cardgiven" id="playercards${playercardcount}" src="${data.cards[0].image}">&nbsp;&nbsp;`);
+
+          if(playerscore2 == 0){
+            $("#playercards").append("&nbsp;&nbsp;");
+          }
+
+          $("#playercards").append(`<img class="cardgiven" id="playercards${playercardcount}" src="${data.cards[0].image}">`);
+
+          if(playerscore2 > 0){
+            $("#playercards").append("&nbsp;&nbsp;");
+          }
+
           $(`#playercards${playercardcount}`).toggleClass("driveInTop"); 
           $(`#playercards${playercardcount}`).bind("animationend",function(){
             $("#player_score").toggleClass("popIn popOut");
@@ -351,13 +370,37 @@ function split(){
         }
       })           
   }
+
+
+  function hit2(){
+
+    fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
+      .then(response => response.json())
+      .then(data =>
+      {
+        if(data.success){
+          playercard2count++;
+          playercards2.push(data.cards[0].value);
+
+          $("#playercards2").append(`&nbsp;&nbsp;<img class="cardgiven" id="playercards${playercard2count}" src="${data.cards[0].image}">`);
+
+          $(`#playercards${playercard2count}`).toggleClass("driveInTop"); 
+          $(`#playercards${playercard2count}`).bind("animationend",function(){
+            $("#player2_score").toggleClass("popIn popOut");
+            $("#animation2").toggleClass("popIn");                      
+          })          
+        }
+      })           
+  }
+
+
   function getcardfordealer(){
     dealercardcount++;
     fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
         .then(response => response.json())
         .then((data)=>{
           dealercards.push(data.cards[0].value);
-          $("#dealercards").append(`<img class="cardgiven" id="dealercard${dealercardcount}" src="${data.cards[0].image}">&nbsp;&nbsp;`);
+          $("#dealercards").append(`&nbsp;&nbsp;<img class="cardgiven" id="dealercard${dealercardcount}" src="${data.cards[0].image}">`);
           $(`#dealercard${dealercardcount}`).toggleClass("driveInTop"); 
           $(`#dealercard${dealercardcount}`).bind("animationend",function(){
             dealerscoreresultfinal();
@@ -445,5 +488,111 @@ function split(){
     }
     return score;
   }
+
+
+
+
+//---------------------------------------------------------------------------------------------Player2ndhand---------------------------------------------------------------------------
+
+  $("#firstset").click(function(){
+    $(this).toggleClass("selected2 selected");
+    $("#extraset").addClass("selected2");
+    $("#extraset").removeClass("selected");
+    $("#btnHit").css("display","inline");
+    $("#btnHit2").css("display","none");
+    $("#btnStay").css("display","inline");
+    $("#btnStay2").css("display","none");
+  })
+
+  $("#extraset").click(function(){
+    $(this).toggleClass("selected2 selected");
+    $("#firstset").addClass("selected2");
+    $("#firstset").removeClass("selected");
+    $("#btnHit2").css("display","inline");
+    $("#btnHit").css("display","none");
+    $("#btnStay2").css("display","inline");
+    $("#btnStay").css("display","none");
+  })
+
+  function split(){    
+    playercards2.push(playercards[1]);
+    playerscore2 = cardvalue(playercards2[0]);
+    playerscore /= 2; 
+    $("#player_score").text(playerscore);
+    playercards.pop();  
+    $(".split").toggleClass("s12 s6 selected2");
+    $("#btnSplit").css("display","none");
+    $("#extraset").html(
+      `<div class="center-wrapper cardshown">
+        <div>You&nbsp;</div><div id="player2_score">${playerscore2}</div>
+      </div>
+      <div class="cardshown" id="playercards2" style="height:210px"><img id="playercards21" src="${playercards2image}"></div>`
+      );
+      $("#playercard2").css("display","none");
+  }
+
+  $("#btnHit2").click(function(){
+    hit2();
+  })
+
+  $("#animation3").bind("animationend",function(){
+    $("#animation3").toggleClass("popIn");
+    $("#player2_score").removeClass("popIn");
+      didplayer2lose();    
+  })
+
+  $("#animation4").bind("animationend",function(){
+    $("#animation4").toggleClass("popIn");
+    $("#player2_score").removeClass("popOut");
+    playerscoreresult();
+  })
+
+  function didplayer2lose()
+  {
+    if(player2score>21)
+    {
+      result = "You Lose";         
+    }
+    showorhidebutton2();
+  }
+
+  function showorhidebutton2(){
+    if(result=="Draw" || result=="You Won" || result=="You Lose" || result=="BlackJack")
+    { 
+      $("#coinafter").text(totalcoin);
+      $("#roundresult").text(result);
+
+      if(totalcoin==0)
+      {
+        $("#btnmodalraisebet").css("display","none");
+        $("#btnmodalnextround").css("display","none");
+      }else{
+        $("#btnNext").css("display","inline");
+        $("#btnmodalraisebet").css("display","inline");
+        $("#btnmodalnextround").css("display","inline");
+      }
+       
+      $("#btnHit").css("display","none");
+      $("#btnStay").css("display","none");
+      
+      if(bet>totalcoin)
+      {
+        bet=totalcoin;
+        if(bet<betbase){
+          bet=betbase;
+        }
+      }
+
+      $("#modalroundresult").modal("open");           
+    }
+    else{
+      $("#btnHit").css("display","inline");
+      $("#btnStay").css("display","inline");
+      $("#btnNext").css("display","none");
+    }
+  }
+
+
 })
+
   

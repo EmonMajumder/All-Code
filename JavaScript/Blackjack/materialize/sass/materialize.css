@@ -9121,6 +9121,14 @@ input[type=range]::-ms-thumb {
   border-radius: 50%;
 }
 
+.selected {
+  background-color: #1B5E20;
+}
+
+.selected2:hover {
+  background-color: #C8E6C9;
+}
+
 .vivify {
   -webkit-animation-duration: .8s;
   -webkit-animation-fill-mode: both;
