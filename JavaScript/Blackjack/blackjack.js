@@ -8,20 +8,26 @@ $(function() {
   let playerscore2=0;
   let deckid = 0;
   let result = "";
+  let result2 = "";
   let round = 0;
   let totalcoin = 1000;
   let totalcoinbase = 1000;
   let bet = 100;
+  let bet2 = 100;
   let betbase = 100;
   let remaining = 52;
   let playercardcount = 2;
-  let playercard2count = 2;
+  let playercardcount2 = 2;
   let dealercardcount = 2;
+  let turn = 0;
+  let h1 = 0;
+  let h2 = 0;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
   
   //----------------------------------------------------------------------------hiding elements------------------------------------------------------------------------
   $("#btnHit2").css("display","none");
   $("#btnStay2").css("display","none");
+  $("#btnmodalclose").css("display","none");
   
 
 
@@ -36,6 +42,7 @@ $(function() {
 
   $("#modalbet").modal();
   $("#modalroundresult").modal();
+  $("#modalroundresult2").modal();
 
   $("#btnmodalStartGame").click(()=>{
     $("#btnPlay").text("Restart");
@@ -65,6 +72,10 @@ $(function() {
     }    
     $("#betamount").html(setcoininplaceof0(bet));
   });  
+
+  $("#btnmodalclose").click(()=>{
+    $("#modalroundresult").modal("close");
+  });
 
   $("#btnmodalnextround").click(()=>{
     $("#modalroundresult").modal("close");
@@ -126,7 +137,6 @@ $(function() {
     $("#dealer_score").toggleClass("popOut popIn");
     $("#dealer_score").text(dealerscore);  
     $("#animationdealercard2").toggleClass("popIn");
-    console.log("hit3");
   })
 
   $("#animationdealercard2").bind("animationend",function(){
@@ -138,7 +148,6 @@ $(function() {
       winorlose();
     }    
     $("#dealer_score").removeClass("popIn");
-    console.log("hit4");
   })
 
   $("#animation").bind("animationend",function(){
@@ -149,8 +158,18 @@ $(function() {
     }
     else{
       didplayerlose();
-      console.log("hit");
-    }    
+    }  
+    
+    if(turn == 1){
+      h1 = $("#firstset").height();
+      h2 = $("#extraset").height();          
+  
+      if(h1>h2){
+        $("#extraset").height(h1);
+      }else{
+        $("#firstset").height(h2);
+      }
+    }
   })
 
   $("#animation2").bind("animationend",function(){
@@ -196,68 +215,140 @@ $(function() {
   {
     if(playerscore>21)
     {
-      result = "You Lose";         
+      result = "You Lose";  
+      extrasetclicked();       
     }
-    showorhidebutton();
+    showorhidebutton();    
   }
 
   function winorlose(){
+    if (turn==0){
+      if(dealerscore>21 && playerscore<=21)
+      {
+        result = "You Won";
+        totalcoin+=bet*2;
+      }
+      else if(21-dealerscore > 21-playerscore)
+      {
+        result = "You Won";
+        totalcoin+=bet*2;
+      }
+      else if(21-dealerscore < 21-playerscore){
+        result = "You Lose";
+      }
+      else{
+        result = "Draw";
+        totalcoin+=bet;
+      }
 
-    if(dealerscore>21 && playerscore<=21)
-    {
-      result = "You Won";
-      totalcoin+=bet*2;
-    }
-    else if(21-dealerscore > 21-playerscore)
-    {
-      result = "You Won";
-      totalcoin+=bet*2;
-    }
-    else if(21-dealerscore < 21-playerscore){
-      result = "You Lose";
-    }
-    else{
-      result = "Draw";
-      totalcoin+=bet;
-    }    
+      $("#coin").text(totalcoin);
+      $("#totalcoinown").html(setcoininplaceof0(totalcoin));
+      showorhidebutton(); 
+    }else{
+      if(dealerscore>21 && playerscore<=21)
+      {
+        result = "You Won";
+        totalcoin+=bet*2;
+      }
+      else if(21-dealerscore > 21-playerscore)
+      {
+        result = "You Won";
+        totalcoin+=bet*2;
+      }
+      else if(21-dealerscore < 21-playerscore){
+        result = "You Lose";
+      }
+      else{
+        result = "Draw";
+        totalcoin+=bet;
+      }
 
-    $("#coin").text(totalcoin);
-    $("#totalcoinown").html(setcoininplaceof0(totalcoin));
-    showorhidebutton();    
+      if(dealerscore>21 && playerscore2<=21)
+      {
+        result2 = "You Won";
+        totalcoin+=bet2*2;
+      }
+      else if(21-dealerscore > 21-playerscore2)
+      {
+        result2 = "You Won";
+        totalcoin+=bet2*2;
+      }
+      else if(21-dealerscore < 21-playerscore2){
+        result2 = "You Lose";
+      }
+      else{
+        result2 = "Draw";
+        totalcoin+=bet2;
+      }
+
+      $("#coin").text(totalcoin);
+      $("#totalcoinown").html(setcoininplaceof0(totalcoin));
+      showorhidebutton(); 
+    }
+        
+
+   
   };
 
   function showorhidebutton(){
     if(result=="Draw" || result=="You Won" || result=="You Lose" || result=="BlackJack")
     { 
       $("#coinafter").text(totalcoin);
-      $("#roundresult").text(result);
 
-      if(totalcoin==0)
-      {
+      if(turn==0){
+        $("#roundresult").text(result);
+      }else{
+        $("#roundresult").text("Left Hand: "+result);
+        $("#roundresult").append("<br>Right Hand: "+result2);
+      }
+      
+
+      if(turn == 0){
+        $("#btnmodalrestart").css("display","inline");
+
+        if(totalcoin==0)
+        {
+          $("#btnmodalraisebet").css("display","none");
+          $("#btnmodalnextround").css("display","none");
+        }else{
+          $("#btnNext").css("display","inline");
+          $("#btnmodalraisebet").css("display","inline");
+          $("#btnmodalnextround").css("display","inline");
+        }        
+        if(bet>totalcoin)
+        {
+          bet=totalcoin;
+          if(bet<betbase){
+            bet=betbase;
+          }
+        }
+      }else{
+        turn = 0;
+        $("#firstset").off("click");
+        $("#btnmodalclose").css("display","inline");
+        $("#btnmodalrestart").css("display","none");
+        $("#btnmodalraisebet").css("display","none");
+        $("#btnmodalnextround").css("display","none");        
+        $("#btnNext").css("display","none");
         $("#btnmodalraisebet").css("display","none");
         $("#btnmodalnextround").css("display","none");
-      }else{
-        $("#btnNext").css("display","inline");
-        $("#btnmodalraisebet").css("display","inline");
-        $("#btnmodalnextround").css("display","inline");
-      }
-       
+      }  
+
       $("#btnHit").css("display","none");
-      $("#btnStay").css("display","none");
-      
-      if(bet>totalcoin)
-      {
-        bet=totalcoin;
-        if(bet<betbase){
-          bet=betbase;
-        }
-      }
+      $("#btnStay").css("display","none");      
 
       $("#modalroundresult").modal("open");           
     }
     else{
       $("#btnHit").css("display","inline");
       $("#btnStay").css("display","inline");
+      if(playercards[0] == playercards[1]){
+        if(bet <= totalcoin){
+          $("#btnSplit").css("display","inline");
+        }else{
+          alert("You don't have enough coin to split");
+        }            
+      }
       $("#btnNext").css("display","none");
     }
   }
@@ -282,13 +373,20 @@ $(function() {
 
     $("#coin").text(totalcoin);
     $("#round").text(round);    
-    $("#betting").text(bet)
+    $("#betting").text(bet);
     $("#btnNext").css("display","none");
     $("#btnSplit").css("display","none");
   
 
     $("#dealercards").empty();
     $("#playercards").empty();
+
+    $("#extraset").empty();
+    $("#extraset").removeClass("selected");
+    $(".split").toggleClass("s12 s6");
+    $("#firstset").height("auto");
+    $("#extraset").height("auto");
+
     $("#dealer_score").text("");
     $("#player_score").text("");
 
@@ -335,15 +433,13 @@ $(function() {
         $("#dealercard2").bind("animationend",function(){
           dealerscoreresult();
           playerscoreresult();
-          if(playercards[0] == playercards[1]){
-            $("#btnSplit").css("display","inline");
-          }
         })       
       })
   }
 
   function hit(){
 
+    $("#btnSplit").css("display","none");
     fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
       .then(response => response.json())
       .then(data =>
@@ -352,15 +448,7 @@ $(function() {
           playercardcount++;
           playercards.push(data.cards[0].value);
 
-          if(playerscore2 == 0){
-            $("#playercards").append("&nbsp;&nbsp;");
-          }
-
-          $("#playercards").append(`<img class="cardgiven" id="playercards${playercardcount}" src="${data.cards[0].image}">`);
-
-          if(playerscore2 > 0){
-            $("#playercards").append("&nbsp;&nbsp;");
-          }
+          $("#playercards").append(`&nbsp;<img class="cardgiven" id="playercards${playercardcount}" src="${data.cards[0].image}">&nbsp;`);
 
           $(`#playercards${playercardcount}`).toggleClass("driveInTop"); 
           $(`#playercards${playercardcount}`).bind("animationend",function(){
@@ -370,29 +458,6 @@ $(function() {
         }
       })           
   }
-
-
-  function hit2(){
-
-    fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
-      .then(response => response.json())
-      .then(data =>
-      {
-        if(data.success){
-          playercard2count++;
-          playercards2.push(data.cards[0].value);
-
-          $("#playercards2").append(`&nbsp;&nbsp;<img class="cardgiven" id="playercards${playercard2count}" src="${data.cards[0].image}">`);
-
-          $(`#playercards${playercard2count}`).toggleClass("driveInTop"); 
-          $(`#playercards${playercard2count}`).bind("animationend",function(){
-            $("#player2_score").toggleClass("popIn popOut");
-            $("#animation2").toggleClass("popIn");                      
-          })          
-        }
-      })           
-  }
-
 
   function getcardfordealer(){
     dealercardcount++;
@@ -409,11 +474,15 @@ $(function() {
   }
 
   function stay(){
-    $(".tcard").toggleClass('is-flipped');  
+    if(turn == 0){
+      $(".tcard").toggleClass('is-flipped');  
 
-    $(".tcard").bind("transitionend",function(){
-        dealerscoreresultfinal();
-      });
+      $(".tcard").bind("transitionend",function(){
+          dealerscoreresultfinal();
+        });
+    }else{
+      extrasetclicked();
+    }
   }
 
   function cardvalue(cardinhand)
@@ -494,41 +563,51 @@ $(function() {
 
 //---------------------------------------------------------------------------------------------Player2ndhand---------------------------------------------------------------------------
 
-  $("#firstset").click(function(){
-    $(this).toggleClass("selected2 selected");
-    $("#extraset").addClass("selected2");
+  function firstsetclicked(){
+    $("#firstset").addClass("selected");
     $("#extraset").removeClass("selected");
     $("#btnHit").css("display","inline");
     $("#btnHit2").css("display","none");
     $("#btnStay").css("display","inline");
     $("#btnStay2").css("display","none");
-  })
+  }
 
-  $("#extraset").click(function(){
-    $(this).toggleClass("selected2 selected");
-    $("#firstset").addClass("selected2");
+  function extrasetclicked(){
+    $("#extraset").addClass("selected");
     $("#firstset").removeClass("selected");
     $("#btnHit2").css("display","inline");
     $("#btnHit").css("display","none");
     $("#btnStay2").css("display","inline");
     $("#btnStay").css("display","none");
-  })
+  }
 
-  function split(){    
+  function split(){
+
+    turn = 1;    
+    bet2 = bet;
+    totalcoin -= bet2; 
+       
+    $("#btnHit").css("display","none");
+    $("#btnStay").css("display","none");
+    $("#coin").text(totalcoin);
+    $("#betting").text(bet);
+
     playercards2.push(playercards[1]);
     playerscore2 = cardvalue(playercards2[0]);
     playerscore /= 2; 
     $("#player_score").text(playerscore);
     playercards.pop();  
-    $(".split").toggleClass("s12 s6 selected2");
+    $(".split").toggleClass("s12 s6");
     $("#btnSplit").css("display","none");
     $("#extraset").html(
       `<div class="center-wrapper cardshown">
         <div>You&nbsp;</div><div id="player2_score">${playerscore2}</div>
       </div>
-      <div class="cardshown" id="playercards2" style="height:210px"><img id="playercards21" src="${playercards2image}"></div>`
+      <div class="cardshown" id="playercards2"><img id="playercards21" src="${playercards2image}"></div>`
       );
-      $("#playercard2").css("display","none");
+      $("#playercard2").css("display","none"); 
+
+    firstsetclicked();
   }
 
   $("#btnHit2").click(function(){
@@ -538,61 +617,131 @@ $(function() {
   $("#animation3").bind("animationend",function(){
     $("#animation3").toggleClass("popIn");
     $("#player2_score").removeClass("popIn");
-      didplayer2lose();    
+
+    h1 = $("#firstset").height();
+    h2 = $("#extraset").height();          
+
+    if(h1>h2){
+      $("#extraset").height(h1);
+    }else{
+      $("#firstset").height(h2);
+    }
+
+    didplayerlose2();    
   })
 
   $("#animation4").bind("animationend",function(){
     $("#animation4").toggleClass("popIn");
     $("#player2_score").removeClass("popOut");
-    playerscoreresult();
+    playerscoreresult2();
   })
 
-  function didplayer2lose()
+  function didplayerlose2()
   {
-    if(player2score>21)
+    if(playerscore2>21)
     {
-      result = "You Lose";         
+      result2 = "You Lose";    
     }
     showorhidebutton2();
   }
 
+  function hit2(){
+
+    fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
+      .then(response => response.json())
+      .then(data =>
+      {
+        if(data.success){
+          playercardcount2++;
+          playercards2.push(data.cards[0].value);
+
+          $("#playercards2").append(`&nbsp;<img class="cardgiven" id="playercards2${playercardcount2}" src="${data.cards[0].image}">&nbsp;`);
+
+          $(`#playercards2${playercardcount2}`).toggleClass("driveInTop");
+
+          $(`#playercards2${playercardcount2}`).bind("animationend",function(){
+            $("#player2_score").toggleClass("popIn popOut");
+            $("#animation4").toggleClass("popIn");                      
+          })          
+        }
+      })           
+  }
+
+  function playerscoreresult2(){
+    console.log("playerscoreresult2");
+    playerscore2 = calculatescore(playercards2);
+
+    if(playerscore2>21 && playercards2.includes("ACE"))
+    {
+      playerscore2-=10;
+      playercards2[playercards2.indexOf("ACE")] = "A";
+    }
+
+    $("#player2_score").toggleClass("popIn");
+    $("#animation3").toggleClass("popIn");
+    $("#player2_score").text(playerscore2);
+  }
+
+
   function showorhidebutton2(){
-    if(result=="Draw" || result=="You Won" || result=="You Lose" || result=="BlackJack")
+    if(result2=="Draw" || result2=="You Won" || result2=="You Lose" || result2=="BlackJack")
     { 
       $("#coinafter").text(totalcoin);
-      $("#roundresult").text(result);
+      $("#roundresult").text(result2);
 
-      if(totalcoin==0)
-      {
+      if(turn == 0){
+        $("#btnmodalrestart").css("display","inline");
+
+        if(totalcoin==0)
+        {
+          $("#btnmodalraisebet").css("display","none");
+          $("#btnmodalnextround").css("display","none");
+        }else{
+          $("#btnNext").css("display","inline");
+          $("#btnmodalraisebet").css("display","inline");
+          $("#btnmodalnextround").css("display","inline");
+        }
+        
+        if(bet>totalcoin)
+        {
+          bet=totalcoin;
+          if(bet<betbase){
+            bet=betbase;
+          }
+        }
+      }else{
+        turn = 0;
+        $("#btnmodalclose").css("display","inline");
+        $("#btnmodalrestart").css("display","none");
+        $("#btnmodalraisebet").css("display","none");
+        $("#btnmodalnextround").css("display","none");        
+        $("#btnNext").css("display","none");
         $("#btnmodalraisebet").css("display","none");
         $("#btnmodalnextround").css("display","none");
-      }else{
-        $("#btnNext").css("display","inline");
-        $("#btnmodalraisebet").css("display","inline");
-        $("#btnmodalnextround").css("display","inline");
-      }
-       
-      $("#btnHit").css("display","none");
-      $("#btnStay").css("display","none");
-      
-      if(bet>totalcoin)
-      {
-        bet=totalcoin;
-        if(bet<betbase){
-          bet=betbase;
-        }
-      }
+      }  
+
+      $("#btnHit2").css("display","none");
+      $("#btnStay2").css("display","none");      
 
       $("#modalroundresult").modal("open");           
     }
     else{
-      $("#btnHit").css("display","inline");
-      $("#btnStay").css("display","inline");
+      $("#btnHit2").css("display","inline");
+      $("#btnStay2").css("display","inline");
       $("#btnNext").css("display","none");
     }
   }
 
+  $("#btnStay2").click(()=>{
+    stay2();
+  });
 
+  function stay2(){
+    $(".tcard").toggleClass('is-flipped');
+    $(".tcard").bind("transitionend",function(){
+      dealerscoreresultfinal();
+    });
+  }
 })
 
   

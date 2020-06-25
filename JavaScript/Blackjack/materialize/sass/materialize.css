@@ -5739,7 +5739,7 @@ body.keyboard-focused .dropdown-content li:focus {
   right: 0;
   background-color: #fafafa;
   padding: 0;
-  max-height: 70%;
+  max-height: 80%;
   width: 55%;
   margin: auto;
   overflow-y: auto;
@@ -5773,7 +5773,7 @@ body.keyboard-focused .dropdown-content li:focus {
   border-radius: 0 0 2px 2px;
   background-color: #fafafa;
   padding: 4px 6px;
-  height: 56px;
+  height: 70px;
   width: 100%;
   text-align: center;
 }
@@ -9123,10 +9123,6 @@ input[type=range]::-ms-thumb {
 
 .selected {
   background-color: #1B5E20;
-}
-
-.selected2:hover {
-  background-color: #C8E6C9;
 }
 
 .vivify {
