@@ -24,16 +24,18 @@ $(function() {
   let cansplit = 0;
   let righthandonstay = 0;
   let lefthandonstay = 0;
+  let hand = "left";
+  let double = 0;
+  let candouble = 0;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
   
   //----------------------------------------------------------------------------Hiding elements------------------------------------------------------------------------
-  $("#btnHit2").css("display","none");
-  $("#btnStay2").css("display","none");
   $("#btnmodalclose").css("display","none");
   $("#btnHit").css("display","none");
   $("#btnStay").css("display","none");
   $("#btnNext").css("display","none");
   $("#btnSplit").css("display","none");
+  $("#btnDouble").css("display","none");
 
   //----------------------------------------------------------------------------Modals---------------------------------------------------------------------------------
   $("#modalbet").modal();
@@ -52,9 +54,6 @@ $(function() {
 
   $("#btnmodalclose").click(()=>{
     $("#modalroundresult").modal("close");
-    if(lefthandonstay == 1){
-      stay();
-    }
   });
 
   $("#btnmodalnextround").click(()=>{
@@ -112,11 +111,23 @@ $(function() {
   });  
 
   $("#btnHit").click(()=>{
-    hit();
+    if(hand == "left"){
+      hit();
+    }else if(hand == "right"){
+      hit2();
+    }    
   });
 
   $("#btnStay").click(()=>{
-    stay();
+    if(hand == "left"){
+      stay();
+    }else if(hand == "right"){
+      stay2();
+    }    
+  });
+
+  $("#btnDouble").click(()=>{
+    doubledown();
   });
 
   $("#btnNext").click(()=>{
@@ -129,14 +140,6 @@ $(function() {
 
   $("#btnSplit").click(()=>{
     split();
-  });
-
-  $("#btnHit2").click(function(){
-    hit2();
-  })
-
-  $("#btnStay2").click(()=>{
-    stay2();
   });
 
 //---------------------------------------------------------------------------Bind Animation-----------------------------------------------------------------------------
@@ -173,7 +176,6 @@ $(function() {
     $("#animation2").toggleClass("popIn");
     $("#player_score").removeClass("popOut");
     playerscoreresult();
-    console.log("hit2");
   })
 
   $("#animationdealercard3").bind("animationend",function(){
@@ -253,8 +255,6 @@ $(function() {
       }
     }
 
-    $("#coin").text(totalcoin);
-
     $("#totalcoinown").html(setcoininplaceof0(totalcoin));
 
     if(turn==0){
@@ -311,17 +311,29 @@ $(function() {
         $("#btnNext").css("display","none");
         extrasetclicked();
       }
-      $("#btnHit").css("display","none");
-      $("#btnStay").css("display","none");
-      $("#modalroundresult").modal("open");           
+
+      if(righthandonstay==0){
+        $("#btnHit").css("display","none");
+        $("#btnStay").css("display","none"); 
+      }       
+      $("#modalroundresult").modal("open");                
     }
     else{
-      $("#btnHit").css("display","inline");
-      $("#btnStay").css("display","inline");
-      if(cansplit==1){
-        $("#btnSplit").css("display","inline");
+      if(double == 0){
+        $("#btnHit").css("display","inline");
+        $("#btnStay").css("display","inline");
+        if(candouble == 0 && bet<=totalcoin){
+          $("#btnDouble").css("display","inline");
+          candouble = 1;
+        } 
+        if(cansplit==1){
+          $("#btnSplit").css("display","inline");
+        }      
+        $("#btnNext").css("display","none");
+      }else{
+        double = 0;
+        stay();
       }      
-      $("#btnNext").css("display","none");
     }
   }
 
@@ -340,6 +352,9 @@ $(function() {
     playercardcount = 2;
     lefthandonstay = 0;
     righthandonstay = 0;
+    double = 0;
+    candouble = 0;
+    hand = "left";
 
     $("#coin").text(totalcoin);
     $("#round").text(round);    
@@ -377,7 +392,7 @@ $(function() {
 
         $("#playercards").append(`&nbsp;<img class="cardgiven" id="playercard2" src="${data.cards[2].image}">&nbsp;`)
         playercards2image = data.cards[2].image;
-        playercards.push(data.cards[2].value);
+        playercards.push(data.cards[0].value);
 
         $("#dealercards").append(
           `&nbsp;<div class="scene cardgiven" id="dealercard2">
@@ -412,12 +427,18 @@ $(function() {
               alert("You don't have enough coin to split");
             }            
           }
+
+          if(bet >= totalcoin){
+            candouble = 1;
+            alert("You don't have enough coin to double down.");
+          }     
         })       
       })
   }
 
   function hit(){
     $("#btnSplit").css("display","none");
+    $("#btnDouble").css("display","none");
     cansplit = 0;
     fetch("https://deckofcardsapi.com/api/deck/"+deckid+"/draw/?count=1")
       .then(response => response.json())
@@ -453,6 +474,14 @@ $(function() {
   }
 
   function stay(){
+    $("#modalroundresult").modal({
+      onCloseEnd: function(){}
+    });
+    $("#btnDouble").css("display","none");
+    if(turn==0){
+      $("#btnSplit").css("display","none");
+      cansplit = 0;
+    }    
     if(righthandonstay == 0){
       $(".tcard").toggleClass('is-flipped');
       $(".tcard").bind("transitionend",function(){
@@ -462,6 +491,15 @@ $(function() {
       lefthandonstay = 1;
       extrasetclicked();      
     }
+  }
+
+  function doubledown(){
+    double = 1;
+    totalcoin-=bet;
+    bet*=2;
+    $("#coin").text(totalcoin);
+    $("#betting").text(bet);
+    hit();
   }
 
   function cardvalue(cardinhand){
@@ -511,7 +549,7 @@ $(function() {
   }
 
   function playerscoreresult(){
-    console.log("playerscoreresult");
+
     playerscore = calculatescore(playercards);
 
     if(playerscore>21 && playercards.includes("ACE"))
@@ -535,20 +573,10 @@ $(function() {
   }
 
 //---------------------------------------------------------------------------------------------Player2ndhand---------------------------------------------------------------------------
-  function firstsetclicked(){
-    $("#firstset").addClass("selected");
-    $("#extraset").removeClass("selected");
-    $("#btnHit").css("display","inline");
-    $("#btnStay").css("display","inline");
-  }
-
   function extrasetclicked(){
+    hand = "right";
     $("#extraset").addClass("selected");
     $("#firstset").removeClass("selected");
-    $("#btnHit2").css("display","inline");
-    $("#btnHit").css("display","none");
-    $("#btnStay2").css("display","inline");
-    $("#btnStay").css("display","none");
   }
 
   function split(){
@@ -556,9 +584,7 @@ $(function() {
     righthandonstay = 1;    
     bet2 = bet;
     totalcoin -= bet2; 
-       
-    $("#btnHit").css("display","none");
-    $("#btnStay").css("display","none");
+
     $("#coin").text(totalcoin);
     $("#betting").text(bet+bet2);
 
@@ -573,6 +599,7 @@ $(function() {
     playercards.pop();  
     $(".split").toggleClass("s12 s6");
     $("#btnSplit").css("display","none");
+    $("#btnDouble").css("display","none");
     $("#playercards").html(`&nbsp;<img id="playercard1" src="${playercards1image}">&nbsp;`)
     $("#extraset").html(
       `<div class="center-wrapper cardshown">
@@ -580,7 +607,7 @@ $(function() {
       </div>
       <div class="cardshown" id="playercards2">&nbsp;<img id="playercards21" src="${playercards2image}">&nbsp;</div>`
       );
-    firstsetclicked();
+    $("#firstset").addClass("selected");
   }
 
   $("#animation3").bind("animationend",function(){
@@ -626,8 +653,8 @@ $(function() {
   }
 
   function stay2(){
-    $("#btnHit2").css("display","none");
-    $("#btnStay2").css("display","none");
+    $("#btnHit").css("display","none");
+    $("#btnStay").css("display","none");
     $(".tcard").toggleClass('is-flipped');
     $(".tcard").bind("transitionend",function(){
       dealerscoreresultfinal();
@@ -635,7 +662,7 @@ $(function() {
   }
 
   function playerscoreresult2(){
-    console.log("playerscoreresult2");
+
     playerscore2 = calculatescore(playercards2);
 
     if(playerscore2>21 && playercards2.includes("ACE"))
@@ -684,13 +711,20 @@ $(function() {
         $("#btnmodalnextround").css("display","none");        
         $("#btnNext").css("display","none");
       }
-      $("#btnHit2").css("display","none");
-      $("#btnStay2").css("display","none");
-      $("#modalroundresult").modal("open");           
+      $("#btnHit").css("display","none");
+      $("#btnStay").css("display","none");
+      if(lefthandonstay==1){
+        $("#modalroundresult").modal({
+          onCloseEnd: function(){
+            stay();
+          }
+        });  
+      }    
+      $("#modalroundresult").modal("open");          
     }
     else{
-      $("#btnHit2").css("display","inline");
-      $("#btnStay2").css("display","inline");
+      $("#btnHit").css("display","inline");
+      $("#btnStay").css("display","inline");
       $("#btnNext").css("display","none");
     }
   }
