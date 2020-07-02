@@ -27,6 +27,7 @@ $(function() {
   let hand = "left";
   let double = 0;
   let candouble = 0;
+  let doubled = 0;
   const deck="https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1";
   
   //----------------------------------------------------------------------------Hiding elements------------------------------------------------------------------------
@@ -72,6 +73,10 @@ $(function() {
 
   //----------------------------------------------------------------------------Change bet----------------------------------------------------------------------------
   $("#btnmodalchangebet").click(()=>{
+    if(doubled == 1){
+      bet/=2;
+      doubled = 0;
+    }
     $("#betamount").html(setcoininplaceof0(bet));
     $("#totalcoinown").html(setcoininplaceof0(totalcoin));
     $("#modalroundresult").modal("close");
@@ -332,6 +337,7 @@ $(function() {
         $("#btnNext").css("display","none");
       }else{
         double = 0;
+        doubled = 1;
         stay();
       }      
     }
@@ -343,8 +349,7 @@ $(function() {
     dealerscore= 0;
     playerscore= 0;
     playercards2= [];
-    playerscore2= 0;
-    totalcoin-=bet;
+    playerscore2= 0;    
     round++;
     result = "";
     result2 = "";
@@ -352,6 +357,13 @@ $(function() {
     playercardcount = 2;
     lefthandonstay = 0;
     righthandonstay = 0;
+
+    if(doubled==1){
+      doubled = 0;
+      bet/=2;
+    }
+
+    totalcoin-=bet;
     double = 0;
     candouble = 0;
     hand = "left";
@@ -392,7 +404,7 @@ $(function() {
 
         $("#playercards").append(`&nbsp;<img class="cardgiven" id="playercard2" src="${data.cards[2].image}">&nbsp;`)
         playercards2image = data.cards[2].image;
-        playercards.push(data.cards[0].value);
+        playercards.push(data.cards[2].value);
 
         $("#dealercards").append(
           `&nbsp;<div class="scene cardgiven" id="dealercard2">
@@ -428,10 +440,10 @@ $(function() {
             }            
           }
 
-          if(bet >= totalcoin){
-            candouble = 1;
-            alert("You don't have enough coin to double down.");
-          }     
+          if(bet > totalcoin){
+            candouble = 1;  
+            alert("You don't have enough coin to double down.");          
+          }  
         })       
       })
   }
