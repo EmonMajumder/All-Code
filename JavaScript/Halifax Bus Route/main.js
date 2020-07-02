@@ -1,5 +1,6 @@
 (function(){
 
+    let routenum = 0;
     //create map in leaflet and tie it to the div called 'theMap'
     var map = L.map('theMap').setView([44.650627, -63.597140], 14);
 
@@ -8,8 +9,7 @@
         }).addTo(map);
 
     L.marker([44.669178, -63.613382]).addTo(map)
-        .bindPopup('You are here now.')
-        .openPopup();   
+        .bindPopup('You are here now.');   
 
         var url ='https://hrmbuses.herokuapp.com/';
    
@@ -26,8 +26,16 @@
             if(layer){
                 map.removeLayer(layer);
             }
+
+            let myArray;
             
-            let myArray = jsondata.entity.filter(busInfo=> busInfo.vehicle.trip.routeId <= 10 || busInfo.vehicle.trip.routeId ==="9A"|| busInfo.vehicle.trip.routeId ==="9B");
+            if(routenum == 0){
+                myArray = jsondata.entity.filter(busInfo=> busInfo.vehicle.trip.routeId <= 10 || busInfo.vehicle.trip.routeId ==="9A"|| busInfo.vehicle.trip.routeId ==="9B");
+            }
+            else{
+                myArray = jsondata.entity.filter(busInfo=> busInfo.vehicle.trip.routeId == routenum);
+            }
+            
             
             myArray = myArray.map(busInfo=>
             {
@@ -50,8 +58,8 @@
     
             var busIcon = L.icon({
                 iconUrl:'bus.png',
-                iconSize:[50,50],
-                iconAnchor:[25,25]
+                iconSize:[30,30],
+                iconAnchor:[15,15]
                 // popupAnchor:[0,0]
             });
             
@@ -65,19 +73,23 @@
                         "Route ID: "+busData.properties.RouteID+
                         "<br>Bus No:"+busData.properties.BusNo
                         )
-                
                 // ,
                 // onEachFeature: (feature, layer)=>
                 //     layer.bindPopup(
                 //         "Route ID: "+feature.properties.RouteID+
                 //         "<br>Bus No:"+feature.properties.BusNo)
     
-            }).addTo(map);
+            }).addTo(map).bindPopup("Route ID: "+feature.properties.RouteID + "<br>Bus No:"+feature.properties.BusNo);
     
-            setTimeout(busRoute,7000);                     
+            setTimeout(busRoute(routenum),7000);                     
         });
 
        }
 
-       busRoute();
+       $("#busroutesearch").keyup(function(){
+
+        routenum = $(this).val();
+      })
+
+       busRoute(routenum);
 })()
