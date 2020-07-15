@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Your trailer</string>
+    <string name="app_name">Movie Trailer App</string>
     <string name="title_item_detail">Item Detail title</string>
     <string name="thumbnail_image">Thumbnail image</string>
     <string name="btnplay">Play</string>
