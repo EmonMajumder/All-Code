@@ -268,23 +268,20 @@ int main() {
 	clock_t previousTime = startTime;
 
 	//Initialize the city layout.
-	initializecity();
-
-	Col(7);
-	cout << "Initial Setup of Layout" << endl;
+	initializecity();	
 
 	int round = 0;
 	int O = 1;
 	int Z = 1;
 
 	//while loop for the simulation.
-	while (O > 0 && Z > 0 && round < ITERATIONS)
+	while (O > 0 && Z > 0 && round <ITERATIONS)
 	{
 		Col(7);
 
 		startTime = clock();
 		counter += startTime - previousTime;
-		previousTime = startTime;
+		previousTime = startTime;		
 
 		//restrict the console output to delay action on screen.
 		if (counter > pauseInterval * CLOCKS_PER_SEC)
@@ -294,9 +291,13 @@ int main() {
 
 			counter -= pauseInterval * CLOCKS_PER_SEC;
 
-			cout << "Round: " << round << endl;
-
-
+			if (round > 0) {
+				cout << "\n" << "                Round: " << round << endl;
+			}
+			else {
+				cout << "         Initial Setup of Layout" << "\n" << endl;
+			}
+			
 			//Console output of city grid using a operator modifier.
 			//cout << city << endl;
 
@@ -315,25 +316,27 @@ int main() {
 					{
 						if (city->getOrganism(i, j)->symbol == HUMAN_CH)
 						{
+							cout << " ";
+
 							Col(HUMAN_COLOR);
 
 							cout << city->getOrganism(i, j)->symbol;
 
 							/*Col(7);
-							cout << "|";*/
-							cout << " ";
+							cout << "|";*/							
 
 							O++;
 						}
 						else if (city->getOrganism(i, j)->symbol == ZOMBIE_CH)
 						{
+							cout << " ";
+
 							Col(ZOMBIE_COLOR);
 
 							cout << city->getOrganism(i, j)->symbol;
 
 							/*Col(7);
-							cout << "|";*/
-							cout << " ";
+							cout << "|";*/							
 
 							Z++;
 						}
@@ -345,13 +348,11 @@ int main() {
 						cout << "  ";
 					}
 				}
-				cout << "" << endl;
+				cout << endl;
 			}
 
 			Col(6);
-			cout << "Human =" << O << "                     ";
-
-			cout << "Zombie =" << Z << endl;
+			cout << " Human =" << O << "                   "<< "Zombie =" << Z << endl;
 
 			//cout << city << endl;
 
@@ -368,7 +369,12 @@ int main() {
 			addhuman();
 
 			clearmoved();
-		}
+
+			if (round == 1) {
+				cout << "\n" << " Press any key to start the simulation";
+				cin.get();
+			}
+		}			
 	}
 	return  0;
 }

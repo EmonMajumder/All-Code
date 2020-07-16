@@ -5,6 +5,7 @@ Program Title: IT Programming
 Description: Battleship
 """
 import csv
+import os
 
 def targetcounter(gamelayoutList,objecttocount):  #Function that count number of target.
 	targetPointcounter=0
@@ -32,7 +33,8 @@ def main(): #<-- Don't change this line!
 	Rows=[1,2,3,4,5,6,7,8,9,10]
 	gameFinallayout="gameFinallayout.txt"
 	gameFinallayoutforgame="gameFinallayoutforgame.txt"
-	print("BATTLESHIP: The Rise of a Destroyer")
+	os.system('cls')
+	print("\n\nBATTLESHIP: The Rise of a Destroyer")
 	missileCount=30
 	numberofShip=5
 	hitCount=0
@@ -95,12 +97,15 @@ def main(): #<-- Don't change this line!
 
 		targetPointcounter=firstship+secondship+thirdship+fourthship+fifthship
 
-		while targetPointcounter>hitCount and missileCount>0:
+		while targetPointcounter>hitCount and missileCount>0:			
 			positionChooselist=[]
 			positionChoose=input("Choose your target position: ")
+			
 			if positionChoose.lower()=="rule":
-				print("-------Game rules-------\nSink all 5 ships to win the game.\nEnter co-ordinate to hit the target.\nSelect from A-J for x co-ordinate and 1-10 for y co-ordinate.\nPut 2 co-ordinate together")
+				print("-------Game rules-------\nSink all 5 ships to win the game.\nEnter co-ordinate to hit the target.\nSelect from A-J for x co-ordinate and \n1-10 for y co-ordinate.\nPut 2 co-ordinate together")
 			else:
+				os.system('cls')
+				print("\n\n")
 				positionChooselist=list(positionChoose)
 				if len(positionChooselist)==2 or len(positionChooselist)==3:
 					try:
