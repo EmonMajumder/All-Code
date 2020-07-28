@@ -95,7 +95,7 @@ $(function() {
 
 function loadhomepage(){
     $("#main").html(
-        `<div class="row">
+        `<div class="row" style="width:80%;">
 
         <div class="input-field col s12">                                       
             <input id="title" name="title" type="text"/>   
@@ -139,8 +139,8 @@ function loadhomepage(){
 function addrow(post){
     $("tbody").prepend(
         `<tr>                        
-            <td id="td${post.id}">${post.title}</td>
-            <td>${post.body}</td>
+            <td id="td${post.id}" style="width:20%;">${post.title}</td>
+            <td style="width:50%;">${post.body}</td>
             <td>${post.date}</td>
             <td>
                 <button class="btn waves-light" id="e${post.id}">
